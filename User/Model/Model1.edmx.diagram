@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="186220ece3f34284baa8ed71168a7d29" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="Data_ProjectManageModel.MANAGER_TASK" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_ProjectManageModel.PROJECT" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_ProjectManageModel.SCREENSHOT" Width="1.5" PointX="10.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Data_ProjectManageModel.TASK" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="Data_ProjectManageModel.FK_Manage_Task_TASK" ManuallyRouted="false" />
+        <AssociationConnector Association="Data_ProjectManageModel.FK_TASK_PROJECT" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Data_ProjectManageModel.WORK" Width="1.5" PointX="10.5" PointY="1.625" />
+        <EntityTypeShape EntityType="Data_ProjectManageModel.ADMIN" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="Data_ProjectManageModel.ROLE" Width="1.5" PointX="6" PointY="1.625" />
+        <AssociationConnector Association="Data_ProjectManageModel.FK_PROJECT_ADMIN" />
+        <AssociationConnector Association="Data_ProjectManageModel.FK_ROLE_ADMIN" />
+        <EntityTypeShape EntityType="Data_ProjectManageModel.USER" Width="1.5" PointX="8.25" PointY="0.75" />
+        <AssociationConnector Association="Data_ProjectManageModel.FK_USER_ADMIN" />
+        <AssociationConnector Association="Data_ProjectManageModel.FK_Manage_Task_USER" />
+        <AssociationConnector Association="Data_ProjectManageModel.FK_USER_PROJECT" />
+        <AssociationConnector Association="Data_ProjectManageModel.FK_USER_ROLE" />
+        <AssociationConnector Association="Data_ProjectManageModel.FK_SCREENSHOT_USER" />
+        <AssociationConnector Association="Data_ProjectManageModel.FK_WORK_USER" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
