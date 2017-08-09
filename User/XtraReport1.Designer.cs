@@ -463,7 +463,7 @@
             // objectDataSource1
             // 
             this.objectDataSource1.Constructor = objectConstructorInfo1;
-            this.objectDataSource1.DataSource = typeof(User.Model.WORK);
+           // this.objectDataSource1.DataSource = typeof(User.Model.WORK);
             this.objectDataSource1.Name = "objectDataSource1";
             // 
             // XtraReport1

@@ -41,43 +41,48 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(13, 118);
+            this.labelControl1.Location = new System.Drawing.Point(26, 227);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(76, 13);
+            this.labelControl1.Size = new System.Drawing.Size(150, 25);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Tên đăng nhập:";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(41, 146);
+            this.labelControl2.Location = new System.Drawing.Point(82, 281);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(48, 13);
+            this.labelControl2.Size = new System.Drawing.Size(93, 25);
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Mật khẩu:";
             // 
             // txt_id
             // 
-            this.txt_id.EditValue = "ADMIN_US_01";
-            this.txt_id.Location = new System.Drawing.Point(96, 114);
+            this.txt_id.EditValue = "nv1@gmail.com";
+            this.txt_id.Location = new System.Drawing.Point(192, 219);
+            this.txt_id.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txt_id.Name = "txt_id";
-            this.txt_id.Size = new System.Drawing.Size(161, 20);
+            this.txt_id.Size = new System.Drawing.Size(322, 32);
             this.txt_id.TabIndex = 2;
             // 
             // txt_pass
             // 
-            this.txt_pass.EditValue = "123456";
-            this.txt_pass.Location = new System.Drawing.Point(96, 143);
+            this.txt_pass.EditValue = "Aa@123";
+            this.txt_pass.Location = new System.Drawing.Point(192, 275);
+            this.txt_pass.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.Properties.PasswordChar = '*';
-            this.txt_pass.Size = new System.Drawing.Size(161, 20);
+            this.txt_pass.Size = new System.Drawing.Size(322, 32);
             this.txt_pass.TabIndex = 3;
             // 
             // simpleButton1
             // 
             this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(66, 181);
+            this.simpleButton1.Location = new System.Drawing.Point(132, 348);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(118, 42);
+            this.simpleButton1.Size = new System.Drawing.Size(236, 81);
             this.simpleButton1.TabIndex = 4;
             this.simpleButton1.Text = "Đăng Nhập";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
@@ -91,25 +96,27 @@
             this.pnl_loadding.AppearanceDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.pnl_loadding.AppearanceDescription.Options.UseFont = true;
             this.pnl_loadding.Caption = "Kết Nối Server";
-            this.pnl_loadding.Location = new System.Drawing.Point(50, 32);
+            this.pnl_loadding.Location = new System.Drawing.Point(100, 62);
             this.pnl_loadding.LookAndFeel.SkinName = "The Asphalt World";
             this.pnl_loadding.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.pnl_loadding.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnl_loadding.Name = "pnl_loadding";
-            this.pnl_loadding.Size = new System.Drawing.Size(178, 64);
+            this.pnl_loadding.Size = new System.Drawing.Size(356, 123);
             this.pnl_loadding.TabIndex = 0;
             this.pnl_loadding.Text = "progressPanel1";
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 337);
+            this.ClientSize = new System.Drawing.Size(538, 648);
             this.Controls.Add(this.pnl_loadding);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.txt_pass);
             this.Controls.Add(this.txt_id);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);

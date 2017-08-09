@@ -78,10 +78,7 @@
             this.btn_workStop = new DevExpress.XtraEditors.SimpleButton();
             this.btn_workStart = new DevExpress.XtraEditors.SimpleButton();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
-            this.lb_Task_StatusNow = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.lb_Task_FinshDay = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.lb_Task_DeadlineDay = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
@@ -156,6 +153,7 @@
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.btn_loadReport = new DevExpress.XtraEditors.SimpleButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.lb_Task_StatusNow = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -199,9 +197,10 @@
             this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraTabControl1.HeaderLocation = DevExpress.XtraTab.TabHeaderLocation.Left;
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
+            this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(6);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(329, 472);
+            this.xtraTabControl1.Size = new System.Drawing.Size(662, 1259);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -225,16 +224,18 @@
             this.xtraTabPage1.Controls.Add(this.lb_id);
             this.xtraTabPage1.Controls.Add(this.labelControl1);
             this.xtraTabPage1.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage1.Image")));
+            this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(6);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(298, 466);
+            this.xtraTabPage1.Size = new System.Drawing.Size(608, 1247);
             this.xtraTabPage1.Text = "Thông Tin";
             // 
             // btn_LogOut
             // 
             this.btn_LogOut.Image = ((System.Drawing.Image)(resources.GetObject("btn_LogOut.Image")));
-            this.btn_LogOut.Location = new System.Drawing.Point(85, 5);
+            this.btn_LogOut.Location = new System.Drawing.Point(170, 10);
+            this.btn_LogOut.Margin = new System.Windows.Forms.Padding(6);
             this.btn_LogOut.Name = "btn_LogOut";
-            this.btn_LogOut.Size = new System.Drawing.Size(69, 19);
+            this.btn_LogOut.Size = new System.Drawing.Size(138, 37);
             this.btn_LogOut.TabIndex = 9;
             this.btn_LogOut.Text = "Log Out";
             this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
@@ -242,9 +243,10 @@
             // btn_loadnewMail
             // 
             this.btn_loadnewMail.Image = ((System.Drawing.Image)(resources.GetObject("btn_loadnewMail.Image")));
-            this.btn_loadnewMail.Location = new System.Drawing.Point(3, 5);
+            this.btn_loadnewMail.Location = new System.Drawing.Point(6, 10);
+            this.btn_loadnewMail.Margin = new System.Windows.Forms.Padding(6);
             this.btn_loadnewMail.Name = "btn_loadnewMail";
-            this.btn_loadnewMail.Size = new System.Drawing.Size(79, 19);
+            this.btn_loadnewMail.Size = new System.Drawing.Size(158, 37);
             this.btn_loadnewMail.TabIndex = 9;
             this.btn_loadnewMail.Text = "0 Thư mới";
             this.btn_loadnewMail.Click += new System.EventHandler(this.btn_loadnewMail_Click);
@@ -262,59 +264,66 @@
             this.groupControl4.Controls.Add(this.labelControl29);
             this.groupControl4.CustomHeaderButtons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Chi Tiết", ((System.Drawing.Image)(resources.GetObject("groupControl4.CustomHeaderButtons"))))});
-            this.groupControl4.Location = new System.Drawing.Point(6, 365);
+            this.groupControl4.Location = new System.Drawing.Point(12, 702);
+            this.groupControl4.Margin = new System.Windows.Forms.Padding(6);
             this.groupControl4.Name = "groupControl4";
             this.groupControl4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupControl4.Size = new System.Drawing.Size(285, 100);
+            this.groupControl4.Size = new System.Drawing.Size(570, 192);
             this.groupControl4.TabIndex = 8;
             this.groupControl4.Text = "Thông Tin Manager                ";
             // 
             // lb_manager_Age
             // 
-            this.lb_manager_Age.Location = new System.Drawing.Point(37, 62);
+            this.lb_manager_Age.Location = new System.Drawing.Point(74, 119);
+            this.lb_manager_Age.Margin = new System.Windows.Forms.Padding(6);
             this.lb_manager_Age.Name = "lb_manager_Age";
-            this.lb_manager_Age.Size = new System.Drawing.Size(18, 13);
+            this.lb_manager_Age.Size = new System.Drawing.Size(35, 25);
             this.lb_manager_Age.TabIndex = 7;
             this.lb_manager_Age.Text = "N/A";
             // 
             // labelControl24
             // 
-            this.labelControl24.Location = new System.Drawing.Point(5, 81);
+            this.labelControl24.Location = new System.Drawing.Point(10, 156);
+            this.labelControl24.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl24.Name = "labelControl24";
-            this.labelControl24.Size = new System.Drawing.Size(61, 13);
+            this.labelControl24.Size = new System.Drawing.Size(118, 25);
             this.labelControl24.TabIndex = 6;
             this.labelControl24.Text = ":Tên công ty";
             // 
             // lb_manager_Company
             // 
-            this.lb_manager_Company.Location = new System.Drawing.Point(72, 81);
+            this.lb_manager_Company.Location = new System.Drawing.Point(144, 156);
+            this.lb_manager_Company.Margin = new System.Windows.Forms.Padding(6);
             this.lb_manager_Company.Name = "lb_manager_Company";
-            this.lb_manager_Company.Size = new System.Drawing.Size(18, 13);
+            this.lb_manager_Company.Size = new System.Drawing.Size(35, 25);
             this.lb_manager_Company.TabIndex = 5;
             this.lb_manager_Company.Text = "N/A";
             // 
             // labelControl27
             // 
-            this.labelControl27.Location = new System.Drawing.Point(5, 62);
+            this.labelControl27.Location = new System.Drawing.Point(10, 119);
+            this.labelControl27.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl27.Name = "labelControl27";
-            this.labelControl27.Size = new System.Drawing.Size(24, 13);
+            this.labelControl27.Size = new System.Drawing.Size(47, 25);
             this.labelControl27.TabIndex = 4;
             this.labelControl27.Text = ":Tuổi";
             // 
             // lb_manager_Name
             // 
             this.lb_manager_Name.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.lb_manager_Name.Location = new System.Drawing.Point(37, 42);
+            this.lb_manager_Name.Location = new System.Drawing.Point(74, 81);
+            this.lb_manager_Name.Margin = new System.Windows.Forms.Padding(6);
             this.lb_manager_Name.Name = "lb_manager_Name";
-            this.lb_manager_Name.Size = new System.Drawing.Size(18, 13);
+            this.lb_manager_Name.Size = new System.Drawing.Size(35, 25);
             this.lb_manager_Name.TabIndex = 1;
             this.lb_manager_Name.Text = "N/A";
             // 
             // labelControl29
             // 
-            this.labelControl29.Location = new System.Drawing.Point(5, 42);
+            this.labelControl29.Location = new System.Drawing.Point(10, 81);
+            this.labelControl29.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl29.Name = "labelControl29";
-            this.labelControl29.Size = new System.Drawing.Size(22, 13);
+            this.labelControl29.Size = new System.Drawing.Size(42, 25);
             this.labelControl29.TabIndex = 0;
             this.labelControl29.Text = ":Tên";
             // 
@@ -331,59 +340,66 @@
             this.groupControl3.Controls.Add(this.labelControl13);
             this.groupControl3.CustomHeaderButtons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Chi Tiết", ((System.Drawing.Image)(resources.GetObject("groupControl3.CustomHeaderButtons"))))});
-            this.groupControl3.Location = new System.Drawing.Point(6, 259);
+            this.groupControl3.Location = new System.Drawing.Point(12, 498);
+            this.groupControl3.Margin = new System.Windows.Forms.Padding(6);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupControl3.Size = new System.Drawing.Size(285, 100);
+            this.groupControl3.Size = new System.Drawing.Size(570, 192);
             this.groupControl3.TabIndex = 7;
             this.groupControl3.Text = "Thông Tin Công Việc                 ";
             // 
             // lb_numOfTasked
             // 
-            this.lb_numOfTasked.Location = new System.Drawing.Point(87, 81);
+            this.lb_numOfTasked.Location = new System.Drawing.Point(174, 156);
+            this.lb_numOfTasked.Margin = new System.Windows.Forms.Padding(6);
             this.lb_numOfTasked.Name = "lb_numOfTasked";
-            this.lb_numOfTasked.Size = new System.Drawing.Size(18, 13);
+            this.lb_numOfTasked.Size = new System.Drawing.Size(35, 25);
             this.lb_numOfTasked.TabIndex = 7;
             this.lb_numOfTasked.Text = "N/A";
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(5, 81);
+            this.labelControl6.Location = new System.Drawing.Point(10, 156);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(36, 13);
+            this.labelControl6.Size = new System.Drawing.Size(71, 25);
             this.labelControl6.TabIndex = 6;
             this.labelControl6.Text = ":Còn lại";
             // 
             // lb_numOfFinshTask
             // 
-            this.lb_numOfFinshTask.Location = new System.Drawing.Point(87, 62);
+            this.lb_numOfFinshTask.Location = new System.Drawing.Point(174, 119);
+            this.lb_numOfFinshTask.Margin = new System.Windows.Forms.Padding(6);
             this.lb_numOfFinshTask.Name = "lb_numOfFinshTask";
-            this.lb_numOfFinshTask.Size = new System.Drawing.Size(18, 13);
+            this.lb_numOfFinshTask.Size = new System.Drawing.Size(35, 25);
             this.lb_numOfFinshTask.TabIndex = 5;
             this.lb_numOfFinshTask.Text = "N/A";
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(5, 62);
+            this.labelControl9.Location = new System.Drawing.Point(10, 119);
+            this.labelControl9.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(76, 13);
+            this.labelControl9.Size = new System.Drawing.Size(147, 25);
             this.labelControl9.TabIndex = 4;
             this.labelControl9.Text = ":Đã hoàn thành";
             // 
             // lb_numOfTask
             // 
             this.lb_numOfTask.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
-            this.lb_numOfTask.Location = new System.Drawing.Point(87, 42);
+            this.lb_numOfTask.Location = new System.Drawing.Point(174, 81);
+            this.lb_numOfTask.Margin = new System.Windows.Forms.Padding(6);
             this.lb_numOfTask.Name = "lb_numOfTask";
-            this.lb_numOfTask.Size = new System.Drawing.Size(18, 13);
+            this.lb_numOfTask.Size = new System.Drawing.Size(35, 25);
             this.lb_numOfTask.TabIndex = 1;
             this.lb_numOfTask.Text = "N/A";
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(5, 42);
+            this.labelControl13.Location = new System.Drawing.Point(10, 81);
+            this.labelControl13.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(64, 13);
+            this.labelControl13.Size = new System.Drawing.Size(125, 25);
             this.labelControl13.TabIndex = 0;
             this.labelControl13.Text = ":Số công việc";
             // 
@@ -402,74 +418,83 @@
             this.groupControl2.Controls.Add(this.labelControl10);
             this.groupControl2.CustomHeaderButtons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Chi Tiết", ((System.Drawing.Image)(resources.GetObject("groupControl2.CustomHeaderButtons"))))});
-            this.groupControl2.Location = new System.Drawing.Point(3, 144);
+            this.groupControl2.Location = new System.Drawing.Point(6, 277);
+            this.groupControl2.Margin = new System.Windows.Forms.Padding(6);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupControl2.Size = new System.Drawing.Size(288, 109);
+            this.groupControl2.Size = new System.Drawing.Size(576, 210);
             this.groupControl2.TabIndex = 6;
             this.groupControl2.Text = "Thông Tin Dự Án                   ";
             // 
             // lb_statusNow
             // 
-            this.lb_statusNow.Location = new System.Drawing.Point(82, 93);
+            this.lb_statusNow.Location = new System.Drawing.Point(164, 179);
+            this.lb_statusNow.Margin = new System.Windows.Forms.Padding(6);
             this.lb_statusNow.Name = "lb_statusNow";
-            this.lb_statusNow.Size = new System.Drawing.Size(18, 13);
+            this.lb_statusNow.Size = new System.Drawing.Size(35, 25);
             this.lb_statusNow.TabIndex = 9;
             this.lb_statusNow.Text = "N/A";
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(5, 93);
+            this.labelControl8.Location = new System.Drawing.Point(10, 179);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(53, 13);
+            this.labelControl8.Size = new System.Drawing.Size(104, 25);
             this.labelControl8.TabIndex = 8;
             this.labelControl8.Text = ":Trạng thái";
             // 
             // lb_dateEnd
             // 
-            this.lb_dateEnd.Location = new System.Drawing.Point(82, 76);
+            this.lb_dateEnd.Location = new System.Drawing.Point(164, 146);
+            this.lb_dateEnd.Margin = new System.Windows.Forms.Padding(6);
             this.lb_dateEnd.Name = "lb_dateEnd";
-            this.lb_dateEnd.Size = new System.Drawing.Size(18, 13);
+            this.lb_dateEnd.Size = new System.Drawing.Size(35, 25);
             this.lb_dateEnd.TabIndex = 7;
             this.lb_dateEnd.Text = "N/A";
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(5, 76);
+            this.labelControl12.Location = new System.Drawing.Point(10, 146);
+            this.labelControl12.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(71, 13);
+            this.labelControl12.Size = new System.Drawing.Size(88, 25);
             this.labelControl12.TabIndex = 6;
-            this.labelControl12.Text = ":Ngày kết thúc";
+            this.labelControl12.Text = ":Deadline";
             // 
             // lb_dateStart
             // 
-            this.lb_dateStart.Location = new System.Drawing.Point(82, 59);
+            this.lb_dateStart.Location = new System.Drawing.Point(164, 113);
+            this.lb_dateStart.Margin = new System.Windows.Forms.Padding(6);
             this.lb_dateStart.Name = "lb_dateStart";
-            this.lb_dateStart.Size = new System.Drawing.Size(18, 13);
+            this.lb_dateStart.Size = new System.Drawing.Size(35, 25);
             this.lb_dateStart.TabIndex = 5;
             this.lb_dateStart.Text = "N/A";
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(5, 59);
+            this.labelControl4.Location = new System.Drawing.Point(10, 113);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(69, 13);
+            this.labelControl4.Size = new System.Drawing.Size(133, 25);
             this.labelControl4.TabIndex = 4;
             this.labelControl4.Text = ":Ngày bắt đầu";
             // 
             // lb_nameProject
             // 
-            this.lb_nameProject.Location = new System.Drawing.Point(33, 42);
+            this.lb_nameProject.Location = new System.Drawing.Point(66, 81);
+            this.lb_nameProject.Margin = new System.Windows.Forms.Padding(6);
             this.lb_nameProject.Name = "lb_nameProject";
-            this.lb_nameProject.Size = new System.Drawing.Size(18, 13);
+            this.lb_nameProject.Size = new System.Drawing.Size(35, 25);
             this.lb_nameProject.TabIndex = 1;
             this.lb_nameProject.Text = "N/A";
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(5, 42);
+            this.labelControl10.Location = new System.Drawing.Point(10, 81);
+            this.labelControl10.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(22, 13);
+            this.labelControl10.Size = new System.Drawing.Size(42, 25);
             this.labelControl10.TabIndex = 0;
             this.labelControl10.Text = ":Tên";
             // 
@@ -488,91 +513,102 @@
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.CustomHeaderButtons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("Sửa", ((System.Drawing.Image)(resources.GetObject("groupControl1.CustomHeaderButtons"))), -1, DevExpress.XtraEditors.ButtonPanel.ImageLocation.BeforeText, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", true, -1, true, null, true, false, true, null, null, -1)});
-            this.groupControl1.Location = new System.Drawing.Point(3, 28);
+            this.groupControl1.Location = new System.Drawing.Point(6, 54);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(6);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupControl1.Size = new System.Drawing.Size(288, 110);
+            this.groupControl1.Size = new System.Drawing.Size(576, 212);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Thông Tin Cá Nhân                                 ";
             // 
             // lb_role
             // 
-            this.lb_role.Location = new System.Drawing.Point(52, 94);
+            this.lb_role.Location = new System.Drawing.Point(104, 181);
+            this.lb_role.Margin = new System.Windows.Forms.Padding(6);
             this.lb_role.Name = "lb_role";
-            this.lb_role.Size = new System.Drawing.Size(18, 13);
+            this.lb_role.Size = new System.Drawing.Size(35, 25);
             this.lb_role.TabIndex = 7;
             this.lb_role.Text = "N/A";
             // 
             // labelControl31
             // 
-            this.labelControl31.Location = new System.Drawing.Point(5, 94);
+            this.labelControl31.Location = new System.Drawing.Point(10, 181);
+            this.labelControl31.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl31.Name = "labelControl31";
-            this.labelControl31.Size = new System.Drawing.Size(44, 13);
+            this.labelControl31.Size = new System.Drawing.Size(87, 25);
             this.labelControl31.TabIndex = 6;
             this.labelControl31.Text = ":Chức Vụ";
             // 
             // lb_rigDay
             // 
-            this.lb_rigDay.Location = new System.Drawing.Point(76, 76);
+            this.lb_rigDay.Location = new System.Drawing.Point(152, 146);
+            this.lb_rigDay.Margin = new System.Windows.Forms.Padding(6);
             this.lb_rigDay.Name = "lb_rigDay";
-            this.lb_rigDay.Size = new System.Drawing.Size(18, 13);
+            this.lb_rigDay.Size = new System.Drawing.Size(35, 25);
             this.lb_rigDay.TabIndex = 5;
             this.lb_rigDay.Text = "N/A";
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(5, 76);
+            this.labelControl7.Location = new System.Drawing.Point(10, 146);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(65, 13);
+            this.labelControl7.Size = new System.Drawing.Size(126, 25);
             this.labelControl7.TabIndex = 4;
             this.labelControl7.Text = ":Ngày Cấp Tk";
             // 
             // lb_age
             // 
-            this.lb_age.Location = new System.Drawing.Point(33, 59);
+            this.lb_age.Location = new System.Drawing.Point(66, 113);
+            this.lb_age.Margin = new System.Windows.Forms.Padding(6);
             this.lb_age.Name = "lb_age";
-            this.lb_age.Size = new System.Drawing.Size(18, 13);
+            this.lb_age.Size = new System.Drawing.Size(35, 25);
             this.lb_age.TabIndex = 3;
             this.lb_age.Text = "N/A";
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(5, 59);
+            this.labelControl5.Location = new System.Drawing.Point(10, 113);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(24, 13);
+            this.labelControl5.Size = new System.Drawing.Size(47, 25);
             this.labelControl5.TabIndex = 2;
             this.labelControl5.Text = ":Tuổi";
             // 
             // lb_name
             // 
-            this.lb_name.Location = new System.Drawing.Point(33, 42);
+            this.lb_name.Location = new System.Drawing.Point(66, 81);
+            this.lb_name.Margin = new System.Windows.Forms.Padding(6);
             this.lb_name.Name = "lb_name";
-            this.lb_name.Size = new System.Drawing.Size(18, 13);
+            this.lb_name.Size = new System.Drawing.Size(35, 25);
             this.lb_name.TabIndex = 1;
             this.lb_name.Text = "N/A";
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(5, 42);
+            this.labelControl2.Location = new System.Drawing.Point(10, 81);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(22, 13);
+            this.labelControl2.Size = new System.Drawing.Size(42, 25);
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = ":Tên";
             // 
             // lb_id
             // 
             this.lb_id.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_id.Location = new System.Drawing.Point(203, 8);
+            this.lb_id.Location = new System.Drawing.Point(406, 15);
+            this.lb_id.Margin = new System.Windows.Forms.Padding(6);
             this.lb_id.Name = "lb_id";
-            this.lb_id.Size = new System.Drawing.Size(22, 13);
+            this.lb_id.Size = new System.Drawing.Size(45, 27);
             this.lb_id.TabIndex = 1;
             this.lb_id.Text = "N/A";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(157, 8);
+            this.labelControl1.Location = new System.Drawing.Point(314, 15);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(44, 13);
+            this.labelControl1.Size = new System.Drawing.Size(87, 25);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Xin chào:";
             // 
@@ -587,61 +623,68 @@
             this.xtraTabPage2.Controls.Add(this.btn_workStop);
             this.xtraTabPage2.Controls.Add(this.btn_workStart);
             this.xtraTabPage2.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage2.Image")));
+            this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(6);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(298, 466);
+            this.xtraTabPage2.Size = new System.Drawing.Size(608, 1247);
             this.xtraTabPage2.Text = "Làm Việc";
             // 
             // lb_today
             // 
             this.lb_today.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_today.Location = new System.Drawing.Point(154, 46);
+            this.lb_today.Location = new System.Drawing.Point(308, 88);
+            this.lb_today.Margin = new System.Windows.Forms.Padding(6);
             this.lb_today.Name = "lb_today";
-            this.lb_today.Size = new System.Drawing.Size(114, 19);
+            this.lb_today.Size = new System.Drawing.Size(227, 39);
             this.lb_today.TabIndex = 15;
             this.lb_today.Text = "DD/MM/YYYY";
             // 
             // lb1
             // 
             this.lb1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb1.Location = new System.Drawing.Point(17, 46);
+            this.lb1.Location = new System.Drawing.Point(34, 88);
+            this.lb1.Margin = new System.Windows.Forms.Padding(6);
             this.lb1.Name = "lb1";
-            this.lb1.Size = new System.Drawing.Size(105, 19);
+            this.lb1.Size = new System.Drawing.Size(209, 39);
             this.lb1.TabIndex = 14;
             this.lb1.Text = "Ngày làm việc:";
             // 
             // lb_timeworking
             // 
             this.lb_timeworking.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_timeworking.Location = new System.Drawing.Point(154, 96);
+            this.lb_timeworking.Location = new System.Drawing.Point(308, 185);
+            this.lb_timeworking.Margin = new System.Windows.Forms.Padding(6);
             this.lb_timeworking.Name = "lb_timeworking";
-            this.lb_timeworking.Size = new System.Drawing.Size(62, 19);
+            this.lb_timeworking.Size = new System.Drawing.Size(120, 39);
             this.lb_timeworking.TabIndex = 13;
             this.lb_timeworking.Text = "0 : 0 : 0";
             // 
             // lb_3
             // 
             this.lb_3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_3.Location = new System.Drawing.Point(17, 96);
+            this.lb_3.Location = new System.Drawing.Point(34, 185);
+            this.lb_3.Margin = new System.Windows.Forms.Padding(6);
             this.lb_3.Name = "lb_3";
-            this.lb_3.Size = new System.Drawing.Size(126, 19);
+            this.lb_3.Size = new System.Drawing.Size(249, 39);
             this.lb_3.TabIndex = 12;
             this.lb_3.Text = "Thời gian đã làm:";
             // 
             // lb_timeStart
             // 
             this.lb_timeStart.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_timeStart.Location = new System.Drawing.Point(154, 71);
+            this.lb_timeStart.Location = new System.Drawing.Point(308, 137);
+            this.lb_timeStart.Margin = new System.Windows.Forms.Padding(6);
             this.lb_timeStart.Name = "lb_timeStart";
-            this.lb_timeStart.Size = new System.Drawing.Size(68, 19);
+            this.lb_timeStart.Size = new System.Drawing.Size(136, 39);
             this.lb_timeStart.TabIndex = 11;
             this.lb_timeStart.Text = "HH : MM";
             // 
             // lb_2
             // 
             this.lb_2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_2.Location = new System.Drawing.Point(17, 71);
+            this.lb_2.Location = new System.Drawing.Point(34, 137);
+            this.lb_2.Margin = new System.Windows.Forms.Padding(6);
             this.lb_2.Name = "lb_2";
-            this.lb_2.Size = new System.Drawing.Size(131, 19);
+            this.lb_2.Size = new System.Drawing.Size(262, 39);
             this.lb_2.TabIndex = 10;
             this.lb_2.Text = "Thời gian bắt đầu:";
             // 
@@ -651,9 +694,10 @@
             this.btn_workStop.Appearance.Options.UseFont = true;
             this.btn_workStop.Enabled = false;
             this.btn_workStop.Image = ((System.Drawing.Image)(resources.GetObject("btn_workStop.Image")));
-            this.btn_workStop.Location = new System.Drawing.Point(2, 275);
+            this.btn_workStop.Location = new System.Drawing.Point(4, 529);
+            this.btn_workStop.Margin = new System.Windows.Forms.Padding(6);
             this.btn_workStop.Name = "btn_workStop";
-            this.btn_workStop.Size = new System.Drawing.Size(289, 40);
+            this.btn_workStop.Size = new System.Drawing.Size(578, 77);
             this.btn_workStop.TabIndex = 9;
             this.btn_workStop.Text = "Kết Thúc Làm Việc";
             this.btn_workStop.Click += new System.EventHandler(this.btn_workStop_Click);
@@ -663,9 +707,10 @@
             this.btn_workStart.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btn_workStart.Appearance.Options.UseFont = true;
             this.btn_workStart.Image = ((System.Drawing.Image)(resources.GetObject("btn_workStart.Image")));
-            this.btn_workStart.Location = new System.Drawing.Point(2, 227);
+            this.btn_workStart.Location = new System.Drawing.Point(4, 437);
+            this.btn_workStart.Margin = new System.Windows.Forms.Padding(6);
             this.btn_workStart.Name = "btn_workStart";
-            this.btn_workStart.Size = new System.Drawing.Size(289, 42);
+            this.btn_workStart.Size = new System.Drawing.Size(578, 81);
             this.btn_workStart.TabIndex = 8;
             this.btn_workStart.Text = "Bắt Đầu Làm Việc";
             this.btn_workStart.Click += new System.EventHandler(this.btn_workStart_Click_1);
@@ -674,8 +719,6 @@
             // 
             this.xtraTabPage3.Controls.Add(this.lb_Task_StatusNow);
             this.xtraTabPage3.Controls.Add(this.label13);
-            this.xtraTabPage3.Controls.Add(this.lb_Task_FinshDay);
-            this.xtraTabPage3.Controls.Add(this.label11);
             this.xtraTabPage3.Controls.Add(this.lb_Task_DeadlineDay);
             this.xtraTabPage3.Controls.Add(this.label9);
             this.xtraTabPage3.Controls.Add(this.xtraScrollableControl1);
@@ -688,72 +731,50 @@
             this.xtraTabPage3.Controls.Add(this.labelControl3);
             this.xtraTabPage3.Controls.Add(this.cbb_Task);
             this.xtraTabPage3.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage3.Image")));
+            this.xtraTabPage3.Margin = new System.Windows.Forms.Padding(6);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(298, 466);
+            this.xtraTabPage3.Size = new System.Drawing.Size(608, 1247);
             this.xtraTabPage3.Text = "Công Việc";
-            // 
-            // lb_Task_StatusNow
-            // 
-            this.lb_Task_StatusNow.AutoSize = true;
-            this.lb_Task_StatusNow.Location = new System.Drawing.Point(67, 293);
-            this.lb_Task_StatusNow.Name = "lb_Task_StatusNow";
-            this.lb_Task_StatusNow.Size = new System.Drawing.Size(25, 13);
-            this.lb_Task_StatusNow.TabIndex = 15;
-            this.lb_Task_StatusNow.Text = "N/A";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 293);
+            this.label13.Location = new System.Drawing.Point(10, 530);
+            this.label13.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 13);
+            this.label13.Size = new System.Drawing.Size(116, 25);
             this.label13.TabIndex = 14;
             this.label13.Text = "Trạng thái:";
-            // 
-            // lb_Task_FinshDay
-            // 
-            this.lb_Task_FinshDay.AutoSize = true;
-            this.lb_Task_FinshDay.Location = new System.Drawing.Point(105, 275);
-            this.lb_Task_FinshDay.Name = "lb_Task_FinshDay";
-            this.lb_Task_FinshDay.Size = new System.Drawing.Size(25, 13);
-            this.lb_Task_FinshDay.TabIndex = 13;
-            this.lb_Task_FinshDay.Text = "N/A";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 275);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(94, 13);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Ngày hoàn thành:";
             // 
             // lb_Task_DeadlineDay
             // 
             this.lb_Task_DeadlineDay.AutoSize = true;
-            this.lb_Task_DeadlineDay.Location = new System.Drawing.Point(105, 257);
+            this.lb_Task_DeadlineDay.Location = new System.Drawing.Point(210, 494);
+            this.lb_Task_DeadlineDay.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lb_Task_DeadlineDay.Name = "lb_Task_DeadlineDay";
-            this.lb_Task_DeadlineDay.Size = new System.Drawing.Size(25, 13);
+            this.lb_Task_DeadlineDay.Size = new System.Drawing.Size(47, 25);
             this.lb_Task_DeadlineDay.TabIndex = 11;
             this.lb_Task_DeadlineDay.Text = "N/A";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(5, 257);
+            this.label9.Location = new System.Drawing.Point(10, 494);
+            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(78, 13);
+            this.label9.Size = new System.Drawing.Size(100, 25);
             this.label9.TabIndex = 10;
-            this.label9.Text = "Ngày kết thúc:";
+            this.label9.Text = "Deadline:";
             // 
             // xtraScrollableControl1
             // 
             this.xtraScrollableControl1.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.xtraScrollableControl1.Appearance.Options.UseBackColor = true;
             this.xtraScrollableControl1.Controls.Add(this.lb_Tast_Note);
-            this.xtraScrollableControl1.Location = new System.Drawing.Point(4, 127);
+            this.xtraScrollableControl1.Location = new System.Drawing.Point(8, 244);
+            this.xtraScrollableControl1.Margin = new System.Windows.Forms.Padding(6);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(287, 108);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(574, 208);
             this.xtraScrollableControl1.TabIndex = 9;
             // 
             // lb_Tast_Note
@@ -761,54 +782,60 @@
             this.lb_Tast_Note.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
             this.lb_Tast_Note.LineLocation = DevExpress.XtraEditors.LineLocation.Right;
             this.lb_Tast_Note.LineVisible = true;
-            this.lb_Tast_Note.Location = new System.Drawing.Point(3, 3);
+            this.lb_Tast_Note.Location = new System.Drawing.Point(6, 6);
+            this.lb_Tast_Note.Margin = new System.Windows.Forms.Padding(6);
             this.lb_Tast_Note.Name = "lb_Tast_Note";
-            this.lb_Tast_Note.Size = new System.Drawing.Size(261, 13);
+            this.lb_Tast_Note.Size = new System.Drawing.Size(522, 25);
             this.lb_Tast_Note.TabIndex = 7;
             this.lb_Tast_Note.Text = "N/A";
             // 
             // lb_Task_ReciveDay
             // 
             this.lb_Task_ReciveDay.AutoSize = true;
-            this.lb_Task_ReciveDay.Location = new System.Drawing.Point(105, 238);
+            this.lb_Task_ReciveDay.Location = new System.Drawing.Point(210, 458);
+            this.lb_Task_ReciveDay.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lb_Task_ReciveDay.Name = "lb_Task_ReciveDay";
-            this.lb_Task_ReciveDay.Size = new System.Drawing.Size(25, 13);
+            this.lb_Task_ReciveDay.Size = new System.Drawing.Size(47, 25);
             this.lb_Task_ReciveDay.TabIndex = 8;
             this.lb_Task_ReciveDay.Text = "N/A";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 238);
+            this.label7.Location = new System.Drawing.Point(10, 458);
+            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 13);
+            this.label7.Size = new System.Drawing.Size(112, 25);
             this.label7.TabIndex = 7;
             this.label7.Text = "Ngày giao:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 111);
+            this.label5.Location = new System.Drawing.Point(8, 213);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.Size = new System.Drawing.Size(94, 25);
             this.label5.TabIndex = 5;
             this.label5.Text = "Yêu cầu:";
             // 
             // lb_Tast_Name
             // 
             this.lb_Tast_Name.AutoSize = true;
-            this.lb_Tast_Name.Location = new System.Drawing.Point(39, 95);
+            this.lb_Tast_Name.Location = new System.Drawing.Point(78, 183);
+            this.lb_Tast_Name.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lb_Tast_Name.Name = "lb_Tast_Name";
-            this.lb_Tast_Name.Size = new System.Drawing.Size(25, 13);
+            this.lb_Tast_Name.Size = new System.Drawing.Size(47, 25);
             this.lb_Tast_Name.TabIndex = 4;
             this.lb_Tast_Name.Text = "N/A";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 95);
+            this.label2.Location = new System.Drawing.Point(8, 183);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.Size = new System.Drawing.Size(54, 25);
             this.label2.TabIndex = 3;
             this.label2.Text = "Tên:";
             // 
@@ -816,26 +843,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(80, 8);
+            this.label1.Location = new System.Drawing.Point(160, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 16);
+            this.label1.Size = new System.Drawing.Size(251, 31);
             this.label1.TabIndex = 2;
             this.label1.Text = "Chi Tiết Công Việc";
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(4, 39);
+            this.labelControl3.Location = new System.Drawing.Point(8, 75);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(77, 13);
+            this.labelControl3.Size = new System.Drawing.Size(150, 25);
             this.labelControl3.TabIndex = 1;
             this.labelControl3.Text = "Chọn công việc:";
             // 
             // cbb_Task
             // 
             this.cbb_Task.FormattingEnabled = true;
-            this.cbb_Task.Location = new System.Drawing.Point(3, 58);
+            this.cbb_Task.Location = new System.Drawing.Point(6, 112);
+            this.cbb_Task.Margin = new System.Windows.Forms.Padding(6);
             this.cbb_Task.Name = "cbb_Task";
-            this.cbb_Task.Size = new System.Drawing.Size(288, 21);
+            this.cbb_Task.Size = new System.Drawing.Size(572, 33);
             this.cbb_Task.TabIndex = 0;
             this.cbb_Task.SelectedIndexChanged += new System.EventHandler(this.cbb_Task_SelectedIndexChanged);
             // 
@@ -843,17 +873,19 @@
             // 
             this.xtraTabPage4.Controls.Add(this.lb_mail_From_D);
             this.xtraTabPage4.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage4.Image")));
+            this.xtraTabPage4.Margin = new System.Windows.Forms.Padding(6);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(298, 466);
+            this.xtraTabPage4.Size = new System.Drawing.Size(608, 1247);
             this.xtraTabPage4.Text = "E-Mail";
             // 
             // lb_mail_From_D
             // 
             this.lb_mail_From_D.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lb_mail_From_D.Location = new System.Drawing.Point(0, 0);
+            this.lb_mail_From_D.Margin = new System.Windows.Forms.Padding(6);
             this.lb_mail_From_D.Name = "lb_mail_From_D";
             this.lb_mail_From_D.SelectedTabPage = this.xtraTabPage5;
-            this.lb_mail_From_D.Size = new System.Drawing.Size(298, 466);
+            this.lb_mail_From_D.Size = new System.Drawing.Size(608, 1247);
             this.lb_mail_From_D.TabIndex = 0;
             this.lb_mail_From_D.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage5,
@@ -875,16 +907,18 @@
             this.xtraTabPage5.Controls.Add(this.labelControl15);
             this.xtraTabPage5.Controls.Add(this.labelControl11);
             this.xtraTabPage5.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage5.Image")));
+            this.xtraTabPage5.Margin = new System.Windows.Forms.Padding(6);
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(292, 435);
+            this.xtraTabPage5.Size = new System.Drawing.Size(596, 1194);
             this.xtraTabPage5.Text = "Hộp Thư Đến";
             // 
             // btn_loadMail_HTD
             // 
             this.btn_loadMail_HTD.Image = ((System.Drawing.Image)(resources.GetObject("btn_loadMail_HTD.Image")));
-            this.btn_loadMail_HTD.Location = new System.Drawing.Point(2, 5);
+            this.btn_loadMail_HTD.Location = new System.Drawing.Point(4, 10);
+            this.btn_loadMail_HTD.Margin = new System.Windows.Forms.Padding(6);
             this.btn_loadMail_HTD.Name = "btn_loadMail_HTD";
-            this.btn_loadMail_HTD.Size = new System.Drawing.Size(84, 23);
+            this.btn_loadMail_HTD.Size = new System.Drawing.Size(168, 44);
             this.btn_loadMail_HTD.TabIndex = 13;
             this.btn_loadMail_HTD.Text = "Load Email";
             this.btn_loadMail_HTD.Click += new System.EventHandler(this.simpleButton2_Click);
@@ -892,9 +926,10 @@
             // btn_repplyMail
             // 
             this.btn_repplyMail.Image = ((System.Drawing.Image)(resources.GetObject("btn_repplyMail.Image")));
-            this.btn_repplyMail.Location = new System.Drawing.Point(204, 60);
+            this.btn_repplyMail.Location = new System.Drawing.Point(408, 115);
+            this.btn_repplyMail.Margin = new System.Windows.Forms.Padding(6);
             this.btn_repplyMail.Name = "btn_repplyMail";
-            this.btn_repplyMail.Size = new System.Drawing.Size(85, 23);
+            this.btn_repplyMail.Size = new System.Drawing.Size(170, 44);
             this.btn_repplyMail.TabIndex = 12;
             this.btn_repplyMail.Text = "Trả Lời";
             this.btn_repplyMail.Click += new System.EventHandler(this.btn_repplyMail_Click);
@@ -904,9 +939,10 @@
             this.xtraScrollableControl2.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.xtraScrollableControl2.Appearance.Options.UseBackColor = true;
             this.xtraScrollableControl2.Controls.Add(this.lb_mail_Content);
-            this.xtraScrollableControl2.Location = new System.Drawing.Point(4, 85);
+            this.xtraScrollableControl2.Location = new System.Drawing.Point(8, 163);
+            this.xtraScrollableControl2.Margin = new System.Windows.Forms.Padding(6);
             this.xtraScrollableControl2.Name = "xtraScrollableControl2";
-            this.xtraScrollableControl2.Size = new System.Drawing.Size(285, 82);
+            this.xtraScrollableControl2.Size = new System.Drawing.Size(570, 158);
             this.xtraScrollableControl2.TabIndex = 11;
             // 
             // lb_mail_Content
@@ -915,8 +951,9 @@
             this.lb_mail_Content.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
             this.lb_mail_Content.LineVisible = true;
             this.lb_mail_Content.Location = new System.Drawing.Point(0, 0);
+            this.lb_mail_Content.Margin = new System.Windows.Forms.Padding(6);
             this.lb_mail_Content.Name = "lb_mail_Content";
-            this.lb_mail_Content.Size = new System.Drawing.Size(260, 13);
+            this.lb_mail_Content.Size = new System.Drawing.Size(520, 25);
             this.lb_mail_Content.TabIndex = 0;
             this.lb_mail_Content.Text = "N/A";
             // 
@@ -924,12 +961,13 @@
             // 
             this.check_mail_Read.EditValue = true;
             this.check_mail_Read.Enabled = false;
-            this.check_mail_Read.Location = new System.Drawing.Point(85, 413);
+            this.check_mail_Read.Location = new System.Drawing.Point(170, 794);
+            this.check_mail_Read.Margin = new System.Windows.Forms.Padding(6);
             this.check_mail_Read.Name = "check_mail_Read";
             this.check_mail_Read.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.check_mail_Read.Properties.Appearance.Options.UseForeColor = true;
             this.check_mail_Read.Properties.Caption = "Thư chưa xem";
-            this.check_mail_Read.Size = new System.Drawing.Size(88, 19);
+            this.check_mail_Read.Size = new System.Drawing.Size(176, 34);
             this.check_mail_Read.TabIndex = 10;
             this.check_mail_Read.CheckedChanged += new System.EventHandler(this.check_mail_UnRead_CheckedChanged);
             // 
@@ -937,29 +975,33 @@
             // 
             this.check_mail_UnRead.EditValue = true;
             this.check_mail_UnRead.Enabled = false;
-            this.check_mail_UnRead.Location = new System.Drawing.Point(3, 414);
+            this.check_mail_UnRead.Location = new System.Drawing.Point(6, 796);
+            this.check_mail_UnRead.Margin = new System.Windows.Forms.Padding(6);
             this.check_mail_UnRead.Name = "check_mail_UnRead";
             this.check_mail_UnRead.Properties.Appearance.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.check_mail_UnRead.Properties.Appearance.Options.UseForeColor = true;
             this.check_mail_UnRead.Properties.Caption = "Thư đã xem";
-            this.check_mail_UnRead.Size = new System.Drawing.Size(83, 19);
+            this.check_mail_UnRead.Size = new System.Drawing.Size(166, 34);
             this.check_mail_UnRead.TabIndex = 9;
             this.check_mail_UnRead.CheckedChanged += new System.EventHandler(this.check_mail_UnRead_CheckedChanged);
             // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(-1, 178);
+            this.labelControl16.Location = new System.Drawing.Point(-2, 342);
+            this.labelControl16.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(65, 13);
+            this.labelControl16.Size = new System.Drawing.Size(128, 25);
             this.labelControl16.TabIndex = 8;
             this.labelControl16.Text = "Thư đã nhận:";
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(-1, 192);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(6);
+            this.gridControl1.Location = new System.Drawing.Point(-2, 369);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(6);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(290, 216);
+            this.gridControl1.Size = new System.Drawing.Size(580, 415);
             this.gridControl1.TabIndex = 7;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -996,41 +1038,46 @@
             // 
             // labelControl14
             // 
-            this.labelControl14.Location = new System.Drawing.Point(3, 70);
+            this.labelControl14.Location = new System.Drawing.Point(6, 135);
+            this.labelControl14.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl14.Name = "labelControl14";
-            this.labelControl14.Size = new System.Drawing.Size(43, 13);
+            this.labelControl14.Size = new System.Drawing.Size(80, 25);
             this.labelControl14.TabIndex = 6;
             this.labelControl14.Text = "Content:";
             // 
             // lb_mail_Time_HTD
             // 
-            this.lb_mail_Time_HTD.Location = new System.Drawing.Point(35, 51);
+            this.lb_mail_Time_HTD.Location = new System.Drawing.Point(70, 98);
+            this.lb_mail_Time_HTD.Margin = new System.Windows.Forms.Padding(6);
             this.lb_mail_Time_HTD.Name = "lb_mail_Time_HTD";
-            this.lb_mail_Time_HTD.Size = new System.Drawing.Size(18, 13);
+            this.lb_mail_Time_HTD.Size = new System.Drawing.Size(36, 25);
             this.lb_mail_Time_HTD.TabIndex = 4;
             this.lb_mail_Time_HTD.Text = "N/A";
             // 
             // lb_mail_From_HTD
             // 
-            this.lb_mail_From_HTD.Location = new System.Drawing.Point(35, 31);
+            this.lb_mail_From_HTD.Location = new System.Drawing.Point(70, 60);
+            this.lb_mail_From_HTD.Margin = new System.Windows.Forms.Padding(6);
             this.lb_mail_From_HTD.Name = "lb_mail_From_HTD";
-            this.lb_mail_From_HTD.Size = new System.Drawing.Size(18, 13);
+            this.lb_mail_From_HTD.Size = new System.Drawing.Size(36, 25);
             this.lb_mail_From_HTD.TabIndex = 3;
             this.lb_mail_From_HTD.Text = "N/A";
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(2, 50);
+            this.labelControl15.Location = new System.Drawing.Point(4, 96);
+            this.labelControl15.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(26, 13);
+            this.labelControl15.Size = new System.Drawing.Size(53, 25);
             this.labelControl15.TabIndex = 2;
             this.labelControl15.Text = "Time:";
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(3, 31);
+            this.labelControl11.Location = new System.Drawing.Point(6, 60);
+            this.labelControl11.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(28, 13);
+            this.labelControl11.Size = new System.Drawing.Size(55, 25);
             this.labelControl11.TabIndex = 0;
             this.labelControl11.Text = "From:";
             // 
@@ -1046,16 +1093,18 @@
             this.xtraTabPage7.Controls.Add(this.labelControl22);
             this.xtraTabPage7.Controls.Add(this.labelControl23);
             this.xtraTabPage7.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage7.Image")));
+            this.xtraTabPage7.Margin = new System.Windows.Forms.Padding(6);
             this.xtraTabPage7.Name = "xtraTabPage7";
-            this.xtraTabPage7.Size = new System.Drawing.Size(292, 435);
+            this.xtraTabPage7.Size = new System.Drawing.Size(596, 1194);
             this.xtraTabPage7.Text = "Hộp Thư Đi";
             // 
             // btn_loadMail_D
             // 
             this.btn_loadMail_D.Image = ((System.Drawing.Image)(resources.GetObject("btn_loadMail_D.Image")));
-            this.btn_loadMail_D.Location = new System.Drawing.Point(4, 3);
+            this.btn_loadMail_D.Location = new System.Drawing.Point(8, 6);
+            this.btn_loadMail_D.Margin = new System.Windows.Forms.Padding(6);
             this.btn_loadMail_D.Name = "btn_loadMail_D";
-            this.btn_loadMail_D.Size = new System.Drawing.Size(84, 23);
+            this.btn_loadMail_D.Size = new System.Drawing.Size(168, 44);
             this.btn_loadMail_D.TabIndex = 13;
             this.btn_loadMail_D.Text = "Load Email";
             this.btn_loadMail_D.Click += new System.EventHandler(this.btn_loadMail_D_Click);
@@ -1065,9 +1114,10 @@
             this.xtraScrollableControl3.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.xtraScrollableControl3.Appearance.Options.UseBackColor = true;
             this.xtraScrollableControl3.Controls.Add(this.lb_mail_Content_D);
-            this.xtraScrollableControl3.Location = new System.Drawing.Point(4, 79);
+            this.xtraScrollableControl3.Location = new System.Drawing.Point(8, 152);
+            this.xtraScrollableControl3.Margin = new System.Windows.Forms.Padding(6);
             this.xtraScrollableControl3.Name = "xtraScrollableControl3";
-            this.xtraScrollableControl3.Size = new System.Drawing.Size(285, 105);
+            this.xtraScrollableControl3.Size = new System.Drawing.Size(570, 202);
             this.xtraScrollableControl3.TabIndex = 11;
             // 
             // lb_mail_Content_D
@@ -1076,25 +1126,29 @@
             this.lb_mail_Content_D.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
             this.lb_mail_Content_D.LineVisible = true;
             this.lb_mail_Content_D.Location = new System.Drawing.Point(0, 0);
+            this.lb_mail_Content_D.Margin = new System.Windows.Forms.Padding(6);
             this.lb_mail_Content_D.Name = "lb_mail_Content_D";
-            this.lb_mail_Content_D.Size = new System.Drawing.Size(257, 13);
+            this.lb_mail_Content_D.Size = new System.Drawing.Size(514, 25);
             this.lb_mail_Content_D.TabIndex = 0;
             this.lb_mail_Content_D.Text = "N/A";
             // 
             // labelControl18
             // 
-            this.labelControl18.Location = new System.Drawing.Point(0, 194);
+            this.labelControl18.Location = new System.Drawing.Point(0, 373);
+            this.labelControl18.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(65, 13);
+            this.labelControl18.Size = new System.Drawing.Size(128, 25);
             this.labelControl18.TabIndex = 8;
             this.labelControl18.Text = "Thư đã nhận:";
             // 
             // gridControl2
             // 
-            this.gridControl2.Location = new System.Drawing.Point(-1, 209);
+            this.gridControl2.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(6);
+            this.gridControl2.Location = new System.Drawing.Point(-2, 402);
             this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.Margin = new System.Windows.Forms.Padding(6);
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(290, 223);
+            this.gridControl2.Size = new System.Drawing.Size(580, 429);
             this.gridControl2.TabIndex = 7;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1130,41 +1184,46 @@
             // 
             // labelControl19
             // 
-            this.labelControl19.Location = new System.Drawing.Point(3, 64);
+            this.labelControl19.Location = new System.Drawing.Point(6, 123);
+            this.labelControl19.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Size = new System.Drawing.Size(43, 13);
+            this.labelControl19.Size = new System.Drawing.Size(80, 25);
             this.labelControl19.TabIndex = 6;
             this.labelControl19.Text = "Content:";
             // 
             // lb_mail_Time_D
             // 
-            this.lb_mail_Time_D.Location = new System.Drawing.Point(35, 47);
+            this.lb_mail_Time_D.Location = new System.Drawing.Point(70, 90);
+            this.lb_mail_Time_D.Margin = new System.Windows.Forms.Padding(6);
             this.lb_mail_Time_D.Name = "lb_mail_Time_D";
-            this.lb_mail_Time_D.Size = new System.Drawing.Size(18, 13);
+            this.lb_mail_Time_D.Size = new System.Drawing.Size(36, 25);
             this.lb_mail_Time_D.TabIndex = 4;
             this.lb_mail_Time_D.Text = "N/A";
             // 
             // lb_mail_From_D1
             // 
-            this.lb_mail_From_D1.Location = new System.Drawing.Point(35, 28);
+            this.lb_mail_From_D1.Location = new System.Drawing.Point(70, 54);
+            this.lb_mail_From_D1.Margin = new System.Windows.Forms.Padding(6);
             this.lb_mail_From_D1.Name = "lb_mail_From_D1";
-            this.lb_mail_From_D1.Size = new System.Drawing.Size(18, 13);
+            this.lb_mail_From_D1.Size = new System.Drawing.Size(36, 25);
             this.lb_mail_From_D1.TabIndex = 3;
             this.lb_mail_From_D1.Text = "N/A";
             // 
             // labelControl22
             // 
-            this.labelControl22.Location = new System.Drawing.Point(2, 46);
+            this.labelControl22.Location = new System.Drawing.Point(4, 88);
+            this.labelControl22.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl22.Name = "labelControl22";
-            this.labelControl22.Size = new System.Drawing.Size(26, 13);
+            this.labelControl22.Size = new System.Drawing.Size(53, 25);
             this.labelControl22.TabIndex = 2;
             this.labelControl22.Text = "Time:";
             // 
             // labelControl23
             // 
-            this.labelControl23.Location = new System.Drawing.Point(3, 28);
+            this.labelControl23.Location = new System.Drawing.Point(6, 54);
+            this.labelControl23.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl23.Name = "labelControl23";
-            this.labelControl23.Size = new System.Drawing.Size(16, 13);
+            this.labelControl23.Size = new System.Drawing.Size(30, 25);
             this.labelControl23.TabIndex = 0;
             this.labelControl23.Text = "To:";
             // 
@@ -1181,32 +1240,36 @@
             this.xtraTabPage6.Controls.Add(this.label3);
             this.xtraTabPage6.Controls.Add(this.cbb_main_ListTo);
             this.xtraTabPage6.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage6.Image")));
+            this.xtraTabPage6.Margin = new System.Windows.Forms.Padding(6);
             this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(292, 435);
+            this.xtraTabPage6.Size = new System.Drawing.Size(596, 1194);
             this.xtraTabPage6.Text = "Thư Mới";
             // 
             // xtraScrollableControl4
             // 
             this.xtraScrollableControl4.Controls.Add(this.lb_mail_To_NewMail);
-            this.xtraScrollableControl4.Location = new System.Drawing.Point(30, 60);
+            this.xtraScrollableControl4.Location = new System.Drawing.Point(60, 115);
+            this.xtraScrollableControl4.Margin = new System.Windows.Forms.Padding(6);
             this.xtraScrollableControl4.Name = "xtraScrollableControl4";
-            this.xtraScrollableControl4.Size = new System.Drawing.Size(222, 38);
+            this.xtraScrollableControl4.Size = new System.Drawing.Size(444, 73);
             this.xtraScrollableControl4.TabIndex = 10;
             // 
             // lb_mail_To_NewMail
             // 
-            this.lb_mail_To_NewMail.Location = new System.Drawing.Point(3, 0);
+            this.lb_mail_To_NewMail.Location = new System.Drawing.Point(6, 0);
+            this.lb_mail_To_NewMail.Margin = new System.Windows.Forms.Padding(6);
             this.lb_mail_To_NewMail.Name = "lb_mail_To_NewMail";
-            this.lb_mail_To_NewMail.Size = new System.Drawing.Size(18, 13);
+            this.lb_mail_To_NewMail.Size = new System.Drawing.Size(36, 25);
             this.lb_mail_To_NewMail.TabIndex = 3;
             this.lb_mail_To_NewMail.Text = "N/A";
             // 
             // btn_mail_Clear_NewMail
             // 
             this.btn_mail_Clear_NewMail.Image = ((System.Drawing.Image)(resources.GetObject("btn_mail_Clear_NewMail.Image")));
-            this.btn_mail_Clear_NewMail.Location = new System.Drawing.Point(63, 283);
+            this.btn_mail_Clear_NewMail.Location = new System.Drawing.Point(126, 544);
+            this.btn_mail_Clear_NewMail.Margin = new System.Windows.Forms.Padding(6);
             this.btn_mail_Clear_NewMail.Name = "btn_mail_Clear_NewMail";
-            this.btn_mail_Clear_NewMail.Size = new System.Drawing.Size(75, 23);
+            this.btn_mail_Clear_NewMail.Size = new System.Drawing.Size(150, 44);
             this.btn_mail_Clear_NewMail.TabIndex = 9;
             this.btn_mail_Clear_NewMail.Text = "Nhập Lại";
             this.btn_mail_Clear_NewMail.Click += new System.EventHandler(this.btn_mail_Clear_NewMail_Click);
@@ -1214,76 +1277,85 @@
             // simpleButton1
             // 
             this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(7, 283);
+            this.simpleButton1.Location = new System.Drawing.Point(14, 544);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(6);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(50, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(100, 44);
             this.simpleButton1.TabIndex = 8;
             this.simpleButton1.Text = "Gửi";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // labelControl25
             // 
-            this.labelControl25.Location = new System.Drawing.Point(7, 115);
+            this.labelControl25.Location = new System.Drawing.Point(14, 221);
+            this.labelControl25.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl25.Name = "labelControl25";
-            this.labelControl25.Size = new System.Drawing.Size(43, 13);
+            this.labelControl25.Size = new System.Drawing.Size(80, 25);
             this.labelControl25.TabIndex = 7;
             this.labelControl25.Text = "Content:";
             // 
             // lb_mail_Time_NewMail
             // 
-            this.lb_mail_Time_NewMail.Location = new System.Drawing.Point(39, 96);
+            this.lb_mail_Time_NewMail.Location = new System.Drawing.Point(78, 185);
+            this.lb_mail_Time_NewMail.Margin = new System.Windows.Forms.Padding(6);
             this.lb_mail_Time_NewMail.Name = "lb_mail_Time_NewMail";
-            this.lb_mail_Time_NewMail.Size = new System.Drawing.Size(18, 13);
+            this.lb_mail_Time_NewMail.Size = new System.Drawing.Size(36, 25);
             this.lb_mail_Time_NewMail.TabIndex = 6;
             this.lb_mail_Time_NewMail.Text = "N/A";
             // 
             // txt_mail_Content_NewMail
             // 
-            this.txt_mail_Content_NewMail.Location = new System.Drawing.Point(3, 128);
+            this.txt_mail_Content_NewMail.Location = new System.Drawing.Point(6, 246);
+            this.txt_mail_Content_NewMail.Margin = new System.Windows.Forms.Padding(6);
             this.txt_mail_Content_NewMail.Name = "txt_mail_Content_NewMail";
-            this.txt_mail_Content_NewMail.Size = new System.Drawing.Size(286, 145);
+            this.txt_mail_Content_NewMail.Size = new System.Drawing.Size(572, 279);
             this.txt_mail_Content_NewMail.TabIndex = 5;
             // 
             // labelControl21
             // 
-            this.labelControl21.Location = new System.Drawing.Point(7, 96);
+            this.labelControl21.Location = new System.Drawing.Point(14, 185);
+            this.labelControl21.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(26, 13);
+            this.labelControl21.Size = new System.Drawing.Size(53, 25);
             this.labelControl21.TabIndex = 4;
             this.labelControl21.Text = "Time:";
             // 
             // labelControl17
             // 
-            this.labelControl17.Location = new System.Drawing.Point(7, 60);
+            this.labelControl17.Location = new System.Drawing.Point(14, 115);
+            this.labelControl17.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(16, 13);
+            this.labelControl17.Size = new System.Drawing.Size(30, 25);
             this.labelControl17.TabIndex = 2;
             this.labelControl17.Text = "To:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 7);
+            this.label3.Location = new System.Drawing.Point(8, 13);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 13);
+            this.label3.Size = new System.Drawing.Size(165, 25);
             this.label3.TabIndex = 1;
             this.label3.Text = "Chọn người gửi:";
             // 
             // cbb_main_ListTo
             // 
-            this.cbb_main_ListTo.Location = new System.Drawing.Point(3, 23);
+            this.cbb_main_ListTo.Location = new System.Drawing.Point(6, 44);
+            this.cbb_main_ListTo.Margin = new System.Windows.Forms.Padding(6);
             this.cbb_main_ListTo.Name = "cbb_main_ListTo";
             this.cbb_main_ListTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbb_main_ListTo.Size = new System.Drawing.Size(286, 20);
+            this.cbb_main_ListTo.Size = new System.Drawing.Size(572, 34);
             this.cbb_main_ListTo.TabIndex = 0;
             this.cbb_main_ListTo.EditValueChanged += new System.EventHandler(this.cbb_main_ListTo_EditValueChanged);
             // 
             // Loadding
             // 
             this.Loadding.Controls.Add(this.progressPanel1);
+            this.Loadding.Margin = new System.Windows.Forms.Padding(6);
             this.Loadding.Name = "Loadding";
-            this.Loadding.Size = new System.Drawing.Size(298, 466);
+            this.Loadding.Size = new System.Drawing.Size(608, 1247);
             // 
             // progressPanel1
             // 
@@ -1295,11 +1367,12 @@
             this.progressPanel1.AppearanceDescription.Options.UseFont = true;
             this.progressPanel1.Caption = "Kết Nối Server";
             this.progressPanel1.Description = "Vui lòng chờ...";
-            this.progressPanel1.Location = new System.Drawing.Point(74, 141);
+            this.progressPanel1.Location = new System.Drawing.Point(148, 271);
             this.progressPanel1.LookAndFeel.SkinName = "Money Twins";
             this.progressPanel1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.progressPanel1.Margin = new System.Windows.Forms.Padding(6);
             this.progressPanel1.Name = "progressPanel1";
-            this.progressPanel1.Size = new System.Drawing.Size(180, 66);
+            this.progressPanel1.Size = new System.Drawing.Size(360, 127);
             this.progressPanel1.TabIndex = 0;
             this.progressPanel1.Text = "progressPanel1";
             // 
@@ -1314,16 +1387,18 @@
             this.xtraTabPage8.Controls.Add(this.labelControl20);
             this.xtraTabPage8.Controls.Add(this.btn_loadReport);
             this.xtraTabPage8.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage8.Image")));
+            this.xtraTabPage8.Margin = new System.Windows.Forms.Padding(6);
             this.xtraTabPage8.Name = "xtraTabPage8";
-            this.xtraTabPage8.Size = new System.Drawing.Size(298, 466);
+            this.xtraTabPage8.Size = new System.Drawing.Size(608, 1247);
             this.xtraTabPage8.Text = "Thống Kê";
             // 
             // btn_CreatReport
             // 
             this.btn_CreatReport.Image = ((System.Drawing.Image)(resources.GetObject("btn_CreatReport.Image")));
-            this.btn_CreatReport.Location = new System.Drawing.Point(151, 433);
+            this.btn_CreatReport.Location = new System.Drawing.Point(302, 833);
+            this.btn_CreatReport.Margin = new System.Windows.Forms.Padding(6);
             this.btn_CreatReport.Name = "btn_CreatReport";
-            this.btn_CreatReport.Size = new System.Drawing.Size(140, 29);
+            this.btn_CreatReport.Size = new System.Drawing.Size(280, 56);
             this.btn_CreatReport.TabIndex = 9;
             this.btn_CreatReport.Text = "Tạo Báo Cáo";
             this.btn_CreatReport.Click += new System.EventHandler(this.btn_CreatReport_Click);
@@ -1331,17 +1406,20 @@
             // xtraScrollableControl5
             // 
             this.xtraScrollableControl5.Controls.Add(this.grid_Report);
-            this.xtraScrollableControl5.Location = new System.Drawing.Point(4, 79);
+            this.xtraScrollableControl5.Location = new System.Drawing.Point(8, 152);
+            this.xtraScrollableControl5.Margin = new System.Windows.Forms.Padding(6);
             this.xtraScrollableControl5.Name = "xtraScrollableControl5";
-            this.xtraScrollableControl5.Size = new System.Drawing.Size(287, 348);
+            this.xtraScrollableControl5.Size = new System.Drawing.Size(574, 669);
             this.xtraScrollableControl5.TabIndex = 7;
             // 
             // grid_Report
             // 
-            this.grid_Report.Location = new System.Drawing.Point(-1, 0);
+            this.grid_Report.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(6);
+            this.grid_Report.Location = new System.Drawing.Point(-2, 0);
             this.grid_Report.MainView = this.gridView3;
+            this.grid_Report.Margin = new System.Windows.Forms.Padding(6);
             this.grid_Report.Name = "grid_Report";
-            this.grid_Report.Size = new System.Drawing.Size(460, 328);
+            this.grid_Report.Size = new System.Drawing.Size(920, 631);
             this.grid_Report.TabIndex = 1;
             this.grid_Report.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -1386,51 +1464,57 @@
             // 
             // lb_report_CountTime
             // 
-            this.lb_report_CountTime.Location = new System.Drawing.Point(81, 60);
+            this.lb_report_CountTime.Location = new System.Drawing.Point(162, 115);
+            this.lb_report_CountTime.Margin = new System.Windows.Forms.Padding(6);
             this.lb_report_CountTime.Name = "lb_report_CountTime";
-            this.lb_report_CountTime.Size = new System.Drawing.Size(18, 13);
+            this.lb_report_CountTime.Size = new System.Drawing.Size(36, 25);
             this.lb_report_CountTime.TabIndex = 6;
             this.lb_report_CountTime.Text = "N/A";
             // 
             // lb_report_Count
             // 
-            this.lb_report_Count.Location = new System.Drawing.Point(96, 40);
+            this.lb_report_Count.Location = new System.Drawing.Point(192, 77);
+            this.lb_report_Count.Margin = new System.Windows.Forms.Padding(6);
             this.lb_report_Count.Name = "lb_report_Count";
-            this.lb_report_Count.Size = new System.Drawing.Size(18, 13);
+            this.lb_report_Count.Size = new System.Drawing.Size(36, 25);
             this.lb_report_Count.TabIndex = 5;
             this.lb_report_Count.Text = "N/A";
             // 
             // labelControl28
             // 
             this.labelControl28.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.labelControl28.Location = new System.Drawing.Point(81, 3);
+            this.labelControl28.Location = new System.Drawing.Point(162, 6);
+            this.labelControl28.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl28.Name = "labelControl28";
-            this.labelControl28.Size = new System.Drawing.Size(156, 19);
+            this.labelControl28.Size = new System.Drawing.Size(306, 39);
             this.labelControl28.TabIndex = 4;
             this.labelControl28.Text = "Thời Gian Làm Việc";
             // 
             // labelControl26
             // 
-            this.labelControl26.Location = new System.Drawing.Point(4, 60);
+            this.labelControl26.Location = new System.Drawing.Point(8, 115);
+            this.labelControl26.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl26.Name = "labelControl26";
-            this.labelControl26.Size = new System.Drawing.Size(72, 13);
+            this.labelControl26.Size = new System.Drawing.Size(144, 25);
             this.labelControl26.TabIndex = 3;
             this.labelControl26.Text = "Tổng thời gian:";
             // 
             // labelControl20
             // 
-            this.labelControl20.Location = new System.Drawing.Point(4, 40);
+            this.labelControl20.Location = new System.Drawing.Point(8, 77);
+            this.labelControl20.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl20.Name = "labelControl20";
-            this.labelControl20.Size = new System.Drawing.Size(86, 13);
+            this.labelControl20.Size = new System.Drawing.Size(173, 25);
             this.labelControl20.TabIndex = 2;
             this.labelControl20.Text = "Số phiên làm việc:";
             // 
             // btn_loadReport
             // 
             this.btn_loadReport.Image = ((System.Drawing.Image)(resources.GetObject("btn_loadReport.Image")));
-            this.btn_loadReport.Location = new System.Drawing.Point(9, 433);
+            this.btn_loadReport.Location = new System.Drawing.Point(18, 833);
+            this.btn_loadReport.Margin = new System.Windows.Forms.Padding(6);
             this.btn_loadReport.Name = "btn_loadReport";
-            this.btn_loadReport.Size = new System.Drawing.Size(136, 29);
+            this.btn_loadReport.Size = new System.Drawing.Size(272, 56);
             this.btn_loadReport.TabIndex = 0;
             this.btn_loadReport.Text = "Load Dữ Liệu";
             this.btn_loadReport.Click += new System.EventHandler(this.btn_loadReport_Click);
@@ -1444,14 +1528,23 @@
             this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
             // 
+            // lb_Task_StatusNow
+            // 
+            this.lb_Task_StatusNow.Location = new System.Drawing.Point(215, 530);
+            this.lb_Task_StatusNow.Name = "lb_Task_StatusNow";
+            this.lb_Task_StatusNow.Size = new System.Drawing.Size(36, 25);
+            this.lb_Task_StatusNow.TabIndex = 16;
+            this.lb_Task_StatusNow.Text = "N/A";
+            // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 472);
+            this.ClientSize = new System.Drawing.Size(662, 1259);
             this.ControlBox = false;
             this.Controls.Add(this.xtraTabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "Home";
             this.Text = "Home";
@@ -1549,10 +1642,7 @@
         private DevExpress.XtraEditors.LabelControl lb_2;
         private DevExpress.XtraEditors.SimpleButton btn_workStop;
         private DevExpress.XtraEditors.SimpleButton btn_workStart;
-        private System.Windows.Forms.Label lb_Task_StatusNow;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label lb_Task_FinshDay;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lb_Task_DeadlineDay;
         private System.Windows.Forms.Label label9;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl1;
@@ -1637,5 +1727,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl31;
         private DevExpress.XtraEditors.SimpleButton btn_CreatReport;
         private DevExpress.XtraEditors.SimpleButton btn_LogOut;
+        private DevExpress.XtraEditors.LabelControl lb_Task_StatusNow;
     }
 }
