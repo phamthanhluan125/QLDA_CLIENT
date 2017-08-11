@@ -25,15 +25,14 @@ namespace User
         public static Staff staff;
         bool Working = false;
         Project project;
-        //ADMIN manager;
+        Admin manager;
+        Timesheet timesheet;
         //List<MESSANGE> ListMess_HTD, ListMess_D;
         List<TaskManager> tasks;
         //List<MANAGER_TASK> ListManagerTask;
         List<string> List_Id_Mail;
-        HttpClient client = new HttpClient();
         String URL = "https://qlda-luan.herokuapp.com/v1/";
-        //WORK work;
-        Thread couttime, workingupdate, SCR;
+        Thread couttime, SCR;
         private Home home;
         public Home()
         {
@@ -54,12 +53,12 @@ namespace User
 
         private void Home_Load(object sender, EventArgs e)
         {
-            //Loadding.Show();
+            Loadding.Show();
             LoadGroup();
-            //lb_today.Text = DateTime.Today.ToString("dd/MM/yyyy");
+            lb_today.Text = DateTime.Today.ToString("dd/MM/yyyy");
             //await LoadCombobox();
             //await LoadComboboxSendEmail();
-            //Loadding.PageVisible = false;
+            Loadding.PageVisible = false;
         }
         //CALL API
         string GET(string url)
@@ -85,6 +84,108 @@ namespace User
                 throw;
             }
         }
+
+        string POST(string uri, string json)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(URL + uri);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                return streamReader.ReadToEnd();
+            }
+        }
+
+        string PUT(string uri, string json)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(URL + uri);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "PUT";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                return streamReader.ReadToEnd();
+            }
+        }
+        //THREAD
+        delegate void SetTextCallback(string text);
+        private async void Threa_SRC()
+        {
+            while (Working)
+            {
+                if (staff.time_scr > 0)
+                {
+                    Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, PixelFormat.Format32bppArgb);
+                    Graphics graphics = Graphics.FromImage(bitmap as Image);
+                    graphics.CopyFromScreen(Screen.PrimaryScreen.Bounds.X, Screen.PrimaryScreen.Bounds.Y, 0, 0, Screen.PrimaryScreen.Bounds.Size, CopyPixelOperation.SourceCopy);
+                    Image o = (Image)bitmap;
+                    o.Save("C:\\Users\\borie\\Desktop\\test1.png", System.Drawing.Imaging.ImageFormat.Png);
+                    ImageConverter _imageConverter = new ImageConverter();
+                    byte[] xByte = (byte[])_imageConverter.ConvertTo(o, typeof(byte[]));
+                    string base64String = Convert.ToBase64String(xByte);
+                    string uri = "screenshots?user_email=" + staff.email + "&user_token=" + staff.authentication_token;
+                    string json = "{\"timesheet_id\":\"" + timesheet.id + "\",\"image\":\"data:image/png;base64,(" + base64String + ")\"}";
+                    string reponse = POST(uri, json);
+                    Reponse<Screenshoot> r = JsonConvert.DeserializeObject<Reponse<Screenshoot>>(reponse);
+                    Thread.Sleep((int)staff.time_scr * 10000);
+                }
+            }
+        }
+        private void SetText(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.lb_timeworking.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetText);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.lb_timeworking.Text = text;
+            }
+        }
+        private void CountTime()
+        {
+            int h = 0, m = 0, s = 0;
+            while (true)
+            {
+                if (s == 60)
+                {
+                    s = 0;
+                    m++;
+                }
+                if (m == 60)
+                {
+                    m = 0;
+                    h++;
+                }
+                s++;
+                SetText(h + " : " + m + " : " + s);
+                Thread.Sleep(1000);
+            }
+        }
+
+        //LOAD
+
         private void LoadGroup()
         {
             //Thong tin ca nhan
@@ -92,16 +193,40 @@ namespace User
             lb_name.Text = staff.name;
             lb_age.Text = staff.birthday.ToString("dd/MM/yyyy");
             lb_rigDay.Text = staff.created_at.ToString("dd/MM/yyyy");
-            lb_role.Text = staff.role;
+            lb_role.Text = staff.role.name;
+            if (staff.gender)
+                lb_gender.Text = "Nữ";
+            else
+                lb_gender.Text = "Nam";
 
             load_project();
             load_tasks();
-            //           //thong tin manager
-            //           manager = await GetManager(user.Id_Admin);
-            //           lb_manager_Name.Text = manager.Name;
-            //           lb_manager_Company.Text = manager.Company_Name;
-            //           lb_manager_Age.Text = manager.Age + "";
+            load_manager();
         }
+
+        private void load_manager()
+        {
+            string uri = "admins?user_email=" + staff.email + "&user_token=" + staff.authentication_token;
+            string reponse = GET(uri);
+            Reponse<Admin> r = JsonConvert.DeserializeObject<Reponse<Admin>>(reponse);
+            if (r.status == 200)
+            {
+                manager = r.content;
+
+                lb_manager_Name.Text = manager.name;
+                lb_manager_address.Text = manager.address;
+                lb_manager_Age.Text = manager.birthday.ToString("dd/MM/yyyy");
+                if (manager.gender)
+                    lb_manager_gender.Text = "Nữ";
+                else
+                    lb_manager_gender.Text = "Nam";
+            }
+            else
+            {
+                MessageBox.Show(r.message, "Lỗi");
+            }
+        }
+
         private void load_project()
         {
             string uri = "projects?user_email=" + staff.email + "&user_token=" + staff.authentication_token;
@@ -159,14 +284,26 @@ namespace User
             if (r.status == 200)
             {
                 tasks = r.content;
-                int dem = 0;
+                int pending = 0, running = 0, delay = 0, finish = 0, cancel = 0;
                 foreach (TaskManager t in tasks)
                 {
-                    if (t.finish_date != null) dem++;
+                    if (t.status == "pending")
+                        pending++;
+                    else if (t.status == "running")
+                        running++;
+                    else if (t.status == "delay")
+                        delay++;
+                    else if (t.status == "finish")
+                        finish++;
+                    else if (t.status == "cancel")
+                        cancel++;
                 }
                 lb_numOfTask.Text = tasks.Count.ToString();
-                lb_numOfFinshTask.Text = dem.ToString();
-                lb_numOfTasked.Text = (tasks.Count - dem).ToString();
+                lb_numOfFinshTask.Text = finish.ToString();
+                lb_numOfTaskpending.Text = pending.ToString();
+                lb_numOfTaskrunning.Text = running.ToString();
+                lb_numOfTaskdelay.Text = delay.ToString();
+                lb_numOfTaskcancel.Text = cancel.ToString();
                 LoadCombobox();
             }
             else
@@ -182,7 +319,6 @@ namespace User
             cbb_Task.ValueMember = "id";
             cbb_Task.DisplayMember = "name";
             cbb_Task.Refresh();
-            int m = 0;
         }
 
         //       private async Task LoadMess_HTD()
@@ -252,45 +388,50 @@ namespace User
         //--------------EVENT-------------------
         private async void btn_workStart_Click_1(object sender, EventArgs e)
         {
-            //    work = new WORK();
-            //    work.TimeStart = DateTime.Now;
-            //    work.Id_User = user.Id_User;
-            //    work.TimeEnd = null;
-            //    int i = await AddWork(work);
-            //    if (i != 0)
-            //    {
-            //        work.Id = i;
-            //        lb_timeStart.Text = work.TimeStart.Hour + " : " + work.TimeStart.Minute;
-            //        couttime = new Thread(new ThreadStart(CountTime));
-            //        couttime.Start();
-            //        btn_workStop.Enabled = true;
-            //        btn_workStart.Enabled = false;
-            //        Working = true;
-            //        workingupdate = new Thread(new ThreadStart(UpdateWorking));
-            //        workingupdate.Start();
-            //        SCR = new Thread(new ThreadStart(Threa_SRC));
-            //        SCR.Start();
-            //    }
-            //    else MessageBox.Show("Server erro!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            string uri = "timesheets?user_email=" + staff.email + "&user_token=" + staff.authentication_token;
+            string reponse = POST(uri, "{}");
+            Reponse<Timesheet> r = JsonConvert.DeserializeObject<Reponse<Timesheet>>(reponse);
+            if (r.status == 200)
+            {
+                MessageBox.Show(r.message, "Thông Báo");
+                timesheet = r.content;
+                lb_timeStart.Text = timesheet.start.Hour + " : " + timesheet.start.Minute;
+                couttime = new Thread(new ThreadStart(CountTime));
+                couttime.Start();
+                btn_workStop.Enabled = true;
+                btn_workStart.Enabled = false;
+                Working = true;
+                SCR = new Thread(new ThreadStart(Threa_SRC));
+                SCR.Start();
+            }
+            else
+            {
+                MessageBox.Show(r.message, "Lỗi");
+            }
         }
 
         private async void btn_workStop_Click(object sender, EventArgs e)
         {
-            //    SCR.Abort();
-            //    work.TimeEnd = DateTime.Now;
-            //    int i = await InsertTimeEnd(work);
-            //    if (i == 1)
-            //    {
-            //        couttime.Abort();
-            //        MessageBox.Show("Thời gian làm việc: " + lb_timeworking.Text, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        btn_workStart.Enabled = true;
-            //        btn_workStop.Enabled = false;
-            //        lb_timeStart.Text = "HH : MM";
-            //        lb_timeworking.Text = "0 : 0 : 0";
-            //        Working = false;
-            //        workingupdate.Abort();
-            //    }
-            //    else MessageBox.Show("Thất Bại");
+           
+            string uri = "timesheets/" + timesheet.id + "?user_email=" + staff.email + "&user_token=" + staff.authentication_token;
+            string reponse = PUT(uri, "{}");
+            Reponse<Timesheet> r = JsonConvert.DeserializeObject<Reponse<Timesheet>>(reponse);
+            if (r.status == 200)
+            {
+                couttime.Abort();
+                SCR.Abort();
+                btn_workStart.Enabled = true;
+                btn_workStop.Enabled = false;
+                lb_timeStart.Text = "HH : MM";
+                lb_timeworking.Text = "0 : 0 : 0";
+                Working = false;
+                MessageBox.Show("Thời gian làm việc: " + lb_timeworking.Text, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(r.message, "Lỗi");
+            }
         }
 
         private void cbb_Task_SelectedIndexChanged(object sender, EventArgs e)
@@ -308,26 +449,6 @@ namespace User
 
                 }
             }
-            //    foreach (MANAGER_TASK m in ListManagerTask)
-            //    {
-            //        if (m.Id_Task == id_task)
-            //        {
-            //            lb_Task_ReciveDay.Text = m.Receive_Day.Value.ToString("dd/MM/yyyy");
-            //            lb_Task_DeadlineDay.Text = m.Deadline_Day.Value.ToString("dd/MM/yyyy");
-            //            if (m.Finish_Day == null)
-            //            {
-            //                lb_Task_FinshDay.Text = "N/A";
-            //                lb_Task_StatusNow.Text = "Công việc chưa được hoàn thành.";
-            //                lb_Task_StatusNow.ForeColor = Color.Orange;
-            //            }
-            //            else
-            //            {
-            //                lb_Task_FinshDay.Text = m.Finish_Day.Value.ToString("dd/MM/yyyy");
-            //                lb_Task_StatusNow.Text = "Công việc đã được hoàn thành.";
-            //                lb_Task_StatusNow.ForeColor = Color.Blue;
-            //            }
-            //        }
-            //    }
         }
 
         private void gridView1_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
@@ -477,23 +598,30 @@ namespace User
 
         private void btn_loadnewMail_Click(object sender, EventArgs e)
         {
-            //    xtraTabPage4.Show();
+            xtraTabPage4.Show();
         }
 
         private void Home_SizeChanged(object sender, EventArgs e)
         {
-            //    if (this.WindowState == FormWindowState.Minimized)
-            //    {
-            //        notifyIcon1.Visible = true;
-            //        ShowNotifyIcon("Project Manager", "Chương trình vẫn chạy ở khay hệ thống.", 10);
-            //    }
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                notifyIcon1.Visible = true;
+                ShowNotifyIcon("Project Manager", "Chương trình vẫn chạy ở khay hệ thống.", 10);
+            }
         }
 
+        private void ShowNotifyIcon(String Titte, String Text, int TimeShow)
+        {
+            notifyIcon1.BalloonTipTitle = Titte;
+            notifyIcon1.BalloonTipText = Text;
+            //Hiện message
+            notifyIcon1.ShowBalloonTip(TimeShow * 1000);
+        }
 
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
         {
-            //    this.WindowState = FormWindowState.Normal;
-            //    notifyIcon1.Visible = false;
+            this.WindowState = FormWindowState.Normal;
+            notifyIcon1.Visible = false;
         }
 
         private async void btn_loadReport_Click(object sender, EventArgs e)
@@ -556,21 +684,20 @@ namespace User
 
         private void btn_LogOut_Click(object sender, EventArgs e)
         {
-            //    if (Working)
-            //        MessageBox.Show("Vui lòng dừng phiên làm việc trước khi Đăng Xuất.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    else
-            //    {
-            //        Login l = new Login();
-            //        l.Show();
-            //        this.Hide();
+            if (Working)
+                MessageBox.Show("Vui lòng dừng phiên làm việc trước khi Đăng Xuất.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                Login l = new Login();
+                l.Show();
+                this.Hide();
+            }
         }
-
-        //}
 
         private void notifyIcon1_Click(object sender, EventArgs e)
         {
-            //    this.WindowState = FormWindowState.Normal;
-            //    notifyIcon1.Visible = false;
+            this.WindowState = FormWindowState.Normal;
+            notifyIcon1.Visible = false;
         }
 
         private void check_mail_UnRead_CheckedChanged(object sender, EventArgs e)

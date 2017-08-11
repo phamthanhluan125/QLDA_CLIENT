@@ -198,14 +198,6 @@
         YzbnA2IOwfwxv8w/S5gS57g/AGl5Af+OTEZOAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="groupControl4.CustomHeaderButtons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABR0RVh0VGl0
-        bGUARml0O0ZpdFRvUGFnZTt8eMa8AAAAgUlEQVQ4T7WQ0QmAMAxE3ck5XMqp3C7mSq8kRyltxY9n8HJ5
-        goeZfaI8rvuxHVSAuUJXEL8Qy73dUHDiHTtSsykBiypIO0zkKkjwuHYUjwcCHkak45EIWJzhH0Gd5Uch
-        j8SdMxSwqAIeTwnKO49Dp+0wkasgwePaUTzOgmWaYB87XlAAd6UtfHEVAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="groupControl3.CaptionImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACN0RVh0VGl0
@@ -255,14 +247,6 @@
         CXfa6kejLEGJAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="groupControl3.CustomHeaderButtons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABR0RVh0VGl0
-        bGUARml0O0ZpdFRvUGFnZTt8eMa8AAAAgUlEQVQ4T7WQ0QmAMAxE3ck5XMqp3C7mSq8kRyltxY9n8HJ5
-        goeZfaI8rvuxHVSAuUJXEL8Qy73dUHDiHTtSsykBiypIO0zkKkjwuHYUjwcCHkak45EIWJzhH0Gd5Uch
-        j8SdMxSwqAIeTwnKO49Dp+0wkasgwePaUTzOgmWaYB87XlAAd6UtfHEVAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="groupControl2.CaptionImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
@@ -271,14 +255,6 @@
         t0HbsQBJD5ZgC3YXCZjL8tSD2SeRPJjLwH6YpqqfAiUTKJlAyQRKQ0Q0kv5+B0rjPBSy/B+Ylv0S27yt
         EN/wAuhxw1cF/l/gaUML3OGrAlWgClSBKpC/wNvl/UAk/f0OlEygZAIlEyh5aDsAQSqZzRt8UK0AAAAA
         SUVORK5CYII=
-</value>
-  </data>
-  <data name="groupControl2.CustomHeaderButtons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABR0RVh0VGl0
-        bGUARml0O0ZpdFRvUGFnZTt8eMa8AAAAgUlEQVQ4T7WQ0QmAMAxE3ck5XMqp3C7mSq8kRyltxY9n8HJ5
-        goeZfaI8rvuxHVSAuUJXEL8Qy73dUHDiHTtSsykBiypIO0zkKkjwuHYUjwcCHkak45EIWJzhH0Gd5Uch
-        j8SdMxSwqAIeTwnKO49Dp+0wkasgwePaUTzOgmWaYB87XlAAd6UtfHEVAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="groupControl1.CaptionImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -299,15 +275,6 @@
         5PP52DwCcqc+C5ZVVLMcKHQI/NVeUvF4nM151R9lw2KwRUU1K4Fit7XrwXyCNVibWsEWFdWsBIrxeujs
         68t/ATGmZ9ZKmhNsU1HNSpiC/H/g6u/vzzZ3Ga+gqRWtFlHNSliK8puxBzwDO41XFq0WUc1qoprVRDWr
         h9T8A9Rt8n4UW26GAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="groupControl1.CustomHeaderButtons" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAt0RVh0VGl0
-        bGUARWRpdDtlNaxEAAAAoklEQVQ4T5XOMRKCMBAFUOg8EY1nwNJT0FrL0GKnh8mxvADq/5kssy4Lky1e
-        Jsn8v0nTTynqBi9oefYCR1j+FnmIFzryABlATy/k4cv3spchHxhs0KO/LUNmGLi3YUuX7ZBMhy2vnL8N
-        a04XtKoy/R2K6jLZi1CZ9CFcJtmcIVwmLlc4wQihMnF5QwIZUl0mLgvwVRnSwSa4h4v+9oWX9VLzA+bc
-        zQR+JeoKAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="xtraTabPage1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
