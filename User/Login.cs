@@ -15,8 +15,8 @@ namespace User
     public partial class Login : DevExpress.XtraEditors.XtraForm
     {
         public static HttpClient client = new HttpClient();
-        public static String URL = "https://qlda-luan.herokuapp.com/v1/";
-        public Login()
+        public static String URL = "http://192.168.1.187:3000/v1/";
+		public Login()
         {
             InitializeComponent();
         }

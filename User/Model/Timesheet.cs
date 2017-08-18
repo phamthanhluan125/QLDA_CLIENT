@@ -14,7 +14,5 @@ namespace User.Model
         public DateTime end { get; set; }
         public int user_id { set; get; }
         public int project_id { set; get; }
-
-
     }
 }

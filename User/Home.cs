@@ -25,13 +25,13 @@ namespace User
         public static Staff staff;
         bool Working = false;
         Project project;
-        Admin manager;
+        Manager manager;
         Timesheet timesheet;
         //List<MESSANGE> ListMess_HTD, ListMess_D;
         List<TaskManager> tasks;
         //List<MANAGER_TASK> ListManagerTask;
         List<string> List_Id_Mail;
-        String URL = "https://qlda-luan.herokuapp.com/v1/";
+		String URL = Login.URL;
         Thread couttime, SCR;
         private Home home;
         public Home()
@@ -136,7 +136,6 @@ namespace User
                     Graphics graphics = Graphics.FromImage(bitmap as Image);
                     graphics.CopyFromScreen(Screen.PrimaryScreen.Bounds.X, Screen.PrimaryScreen.Bounds.Y, 0, 0, Screen.PrimaryScreen.Bounds.Size, CopyPixelOperation.SourceCopy);
                     Image o = (Image)bitmap;
-                    o.Save("C:\\Users\\borie\\Desktop\\test1.png", System.Drawing.Imaging.ImageFormat.Png);
                     ImageConverter _imageConverter = new ImageConverter();
                     byte[] xByte = (byte[])_imageConverter.ConvertTo(o, typeof(byte[]));
                     string base64String = Convert.ToBase64String(xByte);
@@ -150,9 +149,7 @@ namespace User
         }
         private void SetText(string text)
         {
-            // InvokeRequired required compares the thread ID of the
-            // calling thread to the thread ID of the creating thread.
-            // If these threads are different, it returns true.
+
             if (this.lb_timeworking.InvokeRequired)
             {
                 SetTextCallback d = new SetTextCallback(SetText);
@@ -206,9 +203,9 @@ namespace User
 
         private void load_manager()
         {
-            string uri = "admins?user_email=" + staff.email + "&user_token=" + staff.authentication_token;
+            string uri = "managers?user_email=" + staff.email + "&user_token=" + staff.authentication_token;
             string reponse = GET(uri);
-            Reponse<Admin> r = JsonConvert.DeserializeObject<Reponse<Admin>>(reponse);
+            Reponse<Manager> r = JsonConvert.DeserializeObject<Reponse<Manager>>(reponse);
             if (r.status == 200)
             {
                 manager = r.content;
@@ -426,7 +423,7 @@ namespace User
                 lb_timeStart.Text = "HH : MM";
                 lb_timeworking.Text = "0 : 0 : 0";
                 Working = false;
-                MessageBox.Show("Thời gian làm việc: " + lb_timeworking.Text, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Phiên làm viêc của bạn từ: " + r.content.start.ToString("hh:mm dd/MM/yyyy") + " - " + r.content.end.ToString("hh:mm dd/MM/yyyy"), "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -624,63 +621,81 @@ namespace User
             notifyIcon1.Visible = false;
         }
 
-        private async void btn_loadReport_Click(object sender, EventArgs e)
+        private void btn_loadReport_Click(object sender, EventArgs e)
         {
-            //    List<WORK> li_work = new List<WORK>();
-            //    li_work = await GetAllWork(user.Id_User);
-            //    DataTable dt = new DataTable();
-            //    dt.Columns.Add("Start");
-            //    dt.Columns.Add("Stop");
-            //    dt.Columns.Add("Delta");
-            //    int couttime = 0, coutwwork = 0;
-            //    foreach (WORK w in li_work)
-            //    {
-            //        if (w.TimeEnd != null)
-            //        {
-            //            TimeSpan time = (w.TimeEnd.Value - w.TimeStart);
-            //            int t = (int)time.TotalMinutes;
-            //            couttime = couttime + t;
-            //            coutwwork++;
-            //            dt.Rows.Add(w.TimeStart, w.TimeEnd, t + "phút");
-            //        }
-            //    }
-            //    lb_report_Count.Text = coutwwork + "";
-            //    lb_report_CountTime.Text = couttime / 60 + "giờ, " + couttime % 60 + " phút.";
-            //    grid_Report.DataSource = dt;
-            //    grid_Report.Refresh();
-        }
+			string uri = "timesheets?user_email=" + staff.email + "&user_token=" + staff.authentication_token;
+			string reponse = GET(uri);
+			ReponseList<Timesheet> r = JsonConvert.DeserializeObject<ReponseList<Timesheet>>(reponse);
+			if (r.status == 200)
+			{
+				List<Timesheet> timesheets = r.content;
+				DataTable dt = new DataTable();
+				dt.Columns.Add("Start");
+				dt.Columns.Add("Stop");
+				dt.Columns.Add("Delta");
+				int couttime = 0, coutwwork = 0;
+				foreach (Timesheet w in timesheets)
+				{
+					if (w.end != null)
+					{
+						TimeSpan time = (w.end - w.start);
+						int t = (int)time.TotalMinutes;
+						couttime = couttime + t;
+						coutwwork++;
+						dt.Rows.Add(w.start, w.end, t + "phút");
+					}
+				}
+				lb_report_Count.Text = coutwwork + "";
+				lb_report_CountTime.Text = couttime / 60 + "giờ, " + couttime % 60 + " phút.";
+				grid_Report.DataSource = dt;
+				grid_Report.Refresh();
+			}
+			else
+			{
+				MessageBox.Show(r.message, "Lỗi");
+			}
+		}
 
 
-        private async void btn_CreatReport_Click(object sender, EventArgs e)
+        private void btn_CreatReport_Click(object sender, EventArgs e)
         {
-            //    List<WORK> li_work = new List<WORK>();
-            //    li_work = await GetAllWork(user.Id_User);
-            //    DataTable dt = new DataTable();
-            //    dt.Columns.Add("Id");
-            //    dt.Columns.Add("TimeStart");
-            //    dt.Columns.Add("TimeEnd");
-            //    dt.Columns.Add("Id_User");
-            //    int couttime = 0, coutwwork = 0;
-            //    foreach (WORK w in li_work)
-            //    {
-            //        if (w.TimeEnd != null)
-            //        {
-            //            TimeSpan time = (w.TimeEnd.Value - w.TimeStart);
-            //            int t = (int)time.TotalMinutes;
-            //            couttime = couttime + t;
-            //            coutwwork++;
-            //            dt.Rows.Add(coutwwork, w.TimeStart.ToString("hh:mm dd/MM/yyyy"), w.TimeEnd.Value.ToString("hh:mm dd/MM/yyyy"), t + "phút");
-            //        }
-            //    }
-            //    XtraReport1 x = new XtraReport1();
-            //    x.lb_Name.Text = user.Name;
-            //    x.lb_UserId.Text = user.Id_User;
-            //    x.lb_Register.Text = user.Regiter_Day.Value.ToString("dd/MM/yyyy");
-            //    x.lb_CountWork.Text = coutwwork.ToString();
-            //    x.lb_SumTimeWork.Text = couttime.ToString();
-            //    x.DataSource = dt;
-            //    x.ShowPreviewDialog();
-        }
+			string uri = "timesheets?user_email=" + staff.email + "&user_token=" + staff.authentication_token;
+			string reponse = GET(uri);
+			ReponseList<Timesheet> r = JsonConvert.DeserializeObject<ReponseList<Timesheet>>(reponse);
+			if (r.status == 200)
+			{
+				List<Timesheet> timesheets = r.content;
+				DataTable dt = new DataTable();
+				dt.Columns.Add("Id");
+				dt.Columns.Add("TimeStart");
+				dt.Columns.Add("TimeEnd");
+				dt.Columns.Add("Id_User");
+				int couttime = 0, coutwwork = 0;
+				foreach (Timesheet w in timesheets)
+				{
+					if (w.end != null)
+					{
+						TimeSpan time = (w.end - w.start);
+						int t = (int)time.TotalMinutes;
+						couttime = couttime + t;
+						coutwwork++;
+						dt.Rows.Add(coutwwork, w.start.ToString("hh:mm dd/MM/yyyy"), w.end.ToString("hh:mm dd/MM/yyyy"), t + "phút");
+					}
+				}
+				XtraReport1 x = new XtraReport1();
+				x.lb_Name.Text = staff.name;
+				x.lb_UserId.Text = staff.email;
+				x.lb_Register.Text = staff.created_at.ToString("dd/MM/yyyy");
+				x.lb_CountWork.Text = coutwwork.ToString();
+				x.lb_SumTimeWork.Text = couttime.ToString();
+				x.DataSource = dt;
+				x.ShowPreviewDialog();
+			}
+			else
+			{
+				MessageBox.Show(r.message, "Lỗi");
+			}
+		}
 
         private void btn_LogOut_Click(object sender, EventArgs e)
         {
