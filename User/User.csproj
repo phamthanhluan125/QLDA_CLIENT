@@ -120,8 +120,9 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Itemsend.cs" />
     <Compile Include="Model\Manager.cs" />
-    <Compile Include="Model\MESSANGE.cs" />
+    <Compile Include="Model\Mess.cs" />
     <Compile Include="Model\Project.cs" />
     <Compile Include="Model\Reponse.cs" />
     <Compile Include="Model\ReponseList.cs" />

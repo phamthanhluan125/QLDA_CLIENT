@@ -27,7 +27,8 @@ namespace User
         Project project;
         Manager manager;
         Timesheet timesheet;
-        //List<MESSANGE> ListMess_HTD, ListMess_D;
+		List<Mess> messages_DEN = new List<Mess>();
+		List<Mess> message_DI = new List<Mess>();
         List<TaskManager> tasks;
         //List<MANAGER_TASK> ListManagerTask;
         List<string> List_Id_Mail;
@@ -57,7 +58,7 @@ namespace User
             LoadGroup();
             lb_today.Text = DateTime.Today.ToString("dd/MM/yyyy");
             //await LoadCombobox();
-            //await LoadComboboxSendEmail();
+			LoadComboboxSendEmail();
             Loadding.PageVisible = false;
         }
         //CALL API
@@ -318,72 +319,89 @@ namespace User
             cbb_Task.Refresh();
         }
 
-        //       private async Task LoadMess_HTD()
-        //       {
-        //           ListMess_HTD = new List<MESSANGE>();
-        //           List<MESSANGE> ListM = new List<MESSANGE>();
-        //           ListM = await GetMail(user.Id_User, 2);
-        //           if (check_mail_UnRead.Checked)
-        //           {
-        //               foreach (MESSANGE m in ListM)
-        //               {
-        //                   if (m.Seen == 1) ListMess_HTD.Add(m);
-        //               }
-        //           }
-        //           if (check_mail_Read.Checked)
-        //           {
-        //               foreach (MESSANGE m in ListM)
-        //               {
-        //                   if (m.Seen == 0) ListMess_HTD.Add(m);
-        //               }
-        //           }
-        //           gridControl1.DataSource = ListMess_HTD;
-        //           gridControl1.Refresh();
-        //       }
-        //       private async Task LoadMess_D()
-        //       {
-        //           ListMess_D = new List<MESSANGE>();
-        //           ListMess_D = await GetMail(user.Id_User, 1);
-        //           gridControl2.DataSource = ListMess_D;
-        //           gridControl2.Refresh();
-        //       }
-        //       private async Task LoadComboboxSendEmail()
-        //       {
-        //           List<USER> listUser = await GetAllUserByIdProject(p.Id_Project);
-        //           List<ROLE> listRole = await GetAllRoleByIdManaer(manager.Id_Admin);
-        //           DataTable dt = new DataTable();
-        //           dt.Columns.Add("Id");
-        //           dt.Columns.Add("Name");
-        //           dt.Rows.Add(manager.Id_Admin, "Manager: " + manager.Name + "(" + manager.Id_Admin + ")");
-        //           foreach (USER us in listUser)
-        //           {
-        //               String id = us.Id_User;
-        //               String name = us.Name;
-        //               foreach (ROLE rl in listRole)
-        //               {
-        //                   if (us.Id_Role == rl.Id_Role)
-        //                       if (id == user.Id_User)
-        //                           lb_role.Text = rl.Name;
-        //                       else
-        //                           name = rl.Name + ": " + name + "(" + us.Id_User + ")";
-        //               }
-        //               if (id != user.Id_User)
-        //                   dt.Rows.Add(id, name);
-        //           }
-        //           cbb_main_ListTo.Properties.DataSource = dt;
-        //           cbb_main_ListTo.Properties.ValueMember = "Id";
-        //           cbb_main_ListTo.Properties.DisplayMember = "Name";
-        //           cbb_main_ListTo.RefreshEditValue();
-        //       }
-        //       private void ClearNewMail()
-        //       {
-        //           foreach (CheckedListBoxItem c in cbb_main_ListTo.Properties.Items)
-        //               c.CheckState = CheckState.Unchecked;
-        //           txt_mail_Content_NewMail.Text = "";
-        //       }
+		private async Task LoadMess_HTD()
+		{
+			string uri = "messages?type=den&user_email=" + staff.email + "&user_token=" + staff.authentication_token;
+			string reponse = GET(uri);
+			ReponseList<Mess> r = JsonConvert.DeserializeObject<ReponseList<Mess>>(reponse);
+			if (r.status == 200)
+			{
+				List<Mess> listHTD = r.content;
+				if (check_mail_UnRead.Checked)
+				{
+					foreach (Mess m in listHTD)
+					{
+						if (m.status == "noseen")
+						{
+							messages_DEN.Add(m);
+						}
+					}
+				}
+				if (check_mail_Read.Checked)
+				{
+					foreach (Mess m in listHTD)
+					{
+						if (m.status == "seen") messages_DEN.Add(m);
 
-        //--------------EVENT-------------------
-        private async void btn_workStart_Click_1(object sender, EventArgs e)
+					}
+				}
+				gridControl1.DataSource = messages_DEN;
+				gridControl1.Refresh();
+
+			}
+			else
+			{
+				MessageBox.Show(r.message, "Lỗi");
+			}
+		}
+
+		private void LoadComboboxSendEmail()
+		{
+			string uri = "messages?type=list_user&user_email=" + staff.email + "&user_token=" + staff.authentication_token;
+			string reponse = GET(uri);
+			ReponseList<Itemsend> r = JsonConvert.DeserializeObject<ReponseList<Itemsend>>(reponse);
+			if (r.status == 200)
+			{
+				List<Itemsend> listietm = r.content;
+				cbb_main_ListTo.Properties.DataSource = listietm;
+				cbb_main_ListTo.Properties.ValueMember = "email";
+				cbb_main_ListTo.Properties.DisplayMember = "name";
+				cbb_main_ListTo.RefreshEditValue();
+
+			}
+			else
+			{
+				MessageBox.Show(r.message, "Lỗi");
+			}
+		}
+
+		private async Task LoadMess_D()
+		{
+			string uri = "messages?type=di&user_email=" + staff.email + "&user_token=" + staff.authentication_token;
+			string reponse = GET(uri);
+			ReponseList<Mess> r = JsonConvert.DeserializeObject<ReponseList<Mess>>(reponse);
+			if (r.status == 200)
+			{
+				message_DI = r.content;
+				gridControl2.DataSource = message_DI;
+				gridControl2.Refresh();
+			}
+			else
+			{
+				MessageBox.Show(r.message, "Lỗi");
+			}
+		}
+
+		private void ClearNewMail()
+		{
+			foreach (CheckedListBoxItem c in cbb_main_ListTo.Properties.Items)
+				c.CheckState = CheckState.Unchecked;
+			txt_mail_Content_NewMail.Text = "";
+			txt_mail_title.Text = "";
+		}
+
+		//--------------EVENT-------------------
+		private async void btn_workStart_Click_1(object sender, EventArgs e)
         {
 
             string uri = "timesheets?user_email=" + staff.email + "&user_token=" + staff.authentication_token;
@@ -450,148 +468,146 @@ namespace User
 
         private void gridView1_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
         {
-            //    // MessageBox.Show(e.RowHandle + "");
-            //    if (e.RowHandle >= 0 && ListMess_HTD[e.RowHandle].Seen == 0)
-            //    {
-            //        e.Appearance.BackColor = Color.DarkOrange;
-            //        e.Appearance.BackColor2 = Color.White;
-            //    }
-            //    else
-            //    {
-            //        e.Appearance.BackColor = Color.Aqua;
-            //        e.Appearance.BackColor2 = Color.White;
-            //    }
-        }
+			// MessageBox.Show(e.RowHandle + "");
+			if (e.RowHandle >= 0 && messages_DEN[e.RowHandle].status == "seen")
+			{
+				e.Appearance.BackColor = Color.DarkOrange;
+				e.Appearance.BackColor2 = Color.White;
+			}
+			else
+			{
+				e.Appearance.BackColor = Color.Aqua;
+				e.Appearance.BackColor2 = Color.White;
+			}
+		}
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            //    LoadMess_HTD();
-            //    check_mail_Read.Enabled = check_mail_UnRead.Enabled = true;
-            //    //MessageBox.Show("ABC");
+                LoadMess_HTD();
+                check_mail_Read.Enabled = check_mail_UnRead.Enabled = true;
         }
 
         private void btn_loadMail_D_Click(object sender, EventArgs e)
         {
-            //    LoadMess_D();
+                LoadMess_D();
         }
 
         private async void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            //    if (gridView1.FocusedRowHandle < 0)
-            //    {
-            //        btn_repplyMail.Enabled = false;
-            //        lb_mail_From_HTD.Text = lb_mail_Time_HTD.Text = lb_mail_Content.Text = "N/A";
-            //        return;
-            //    }
-            //    MESSANGE mess = null;
-            //    mess = ListMess_HTD[gridView1.FocusedRowHandle];
-            //    lb_mail_From_HTD.Text = mess.Id_From;
-            //    foreach (CheckedListBoxItem c in cbb_main_ListTo.Properties.Items)
-            //    {
-            //        if (c.Value.ToString().ToUpper() == mess.Id_From.ToUpper())
-            //            lb_mail_From_HTD.Text = c.Description;
-            //    }
-            //    lb_mail_Time_HTD.Text = mess.Time.ToString("hh:mm dd/MM/yyyy");
-            //    lb_mail_Content.Text = mess.Mess;
-            //    btn_repplyMail.Enabled = true;
-            //    if (mess.Seen != 1)
-            //    {
-            //        await UpdateMail(mess.Id);
-            //        int i = gridView1.FocusedRowHandle;
-            //        ListMess_HTD[i].Seen = 1;
-            //        gridView1.FocusedRowHandle = i;
-            //    }
-        }
+			if (gridView1.FocusedRowHandle < 0)
+			{
+				btn_repplyMail.Enabled = false;
+				lb_mail_title.Text = lb_mail_From_HTD.Text = lb_mail_Time_HTD.Text = lb_mail_Content.Text = "N/A";
+				return;
+			}
+			Mess mess = null;
+			mess = messages_DEN[gridView1.FocusedRowHandle];
+			lb_mail_From_HTD.Text = mess.name;
+			foreach (CheckedListBoxItem c in cbb_main_ListTo.Properties.Items)
+			{
+				if (c.Value.ToString().ToUpper() == mess.name.ToUpper())
+					lb_mail_From_HTD.Text = c.Description;
+			}
+			lb_mail_Time_HTD.Text = mess.created_at.ToString("hh:mm dd/MM/yyyy");
+			lb_mail_title.Text = mess.title;
+			lb_mail_Content.Text = mess.info;
+			btn_repplyMail.Enabled = true;
+			if (mess.status != "seen")
+			{
+				//await UpdateMail(mess.Id);
+				//int i = gridView1.FocusedRowHandle;
+				//ListMess_HTD[i].Seen = 1;
+				//gridView1.FocusedRowHandle = i;
+			}
+		}
 
         private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
 
-            //    if (gridView2.FocusedRowHandle < 0)
-            //    {
-            //        lb_mail_From_D.Text = lb_mail_Time_D.Text = lb_mail_Content_D.Text = "N/A";
-            //        return;
-            //    }
-            //    MESSANGE mess = null;
-            //    mess = ListMess_D[gridView2.FocusedRowHandle];
-            //    lb_mail_From_D1.Text = mess.Id_To;
-            //    foreach (CheckedListBoxItem c in cbb_main_ListTo.Properties.Items)
-            //    {
-            //        if (c.Value.ToString() == mess.Id_To)
-            //            lb_mail_From_D1.Text = c.Description + "(" + mess.Id_To + ")";
-            //    }
-            //    lb_mail_Time_D.Text = mess.Time.ToString("hh:mm dd/MM/yyyy");
-            //    lb_mail_Content_D.Text = mess.Mess;
-        }
+			if (gridView2.FocusedRowHandle < 0)
+			{
+				lb_mail_DI_title.Text = lb_mail_From_D.Text = lb_mail_Time_D.Text = lb_mail_Content_D.Text = "N/A";
+				return;
+			}
+			Mess mess = null;
+			mess = message_DI[gridView2.FocusedRowHandle];
+			lb_mail_From_D1.Text = mess.name;
+			foreach (CheckedListBoxItem c in cbb_main_ListTo.Properties.Items)
+			{
+				if (c.Value.ToString() == mess.name)
+					lb_mail_From_D1.Text = c.Description + "(" + mess.name + ")";
+			}
+			lb_mail_Time_D.Text = mess.created_at.ToString("hh:mm dd/MM/yyyy");
+			lb_mail_DI_title.Text = mess.title;
+			lb_mail_Content_D.Text = mess.info;
+		}
 
         private void cbb_main_ListTo_EditValueChanged(object sender, EventArgs e)
         {
-            //    List_Id_Mail = new List<string>();
-            //    String text = "";
-            //    foreach (CheckedListBoxItem c in cbb_main_ListTo.Properties.Items)
-            //    {
-            //        if (c.CheckState == CheckState.Checked)
-            //        {
-            //            List_Id_Mail.Add(c.Value + "");
-            //            text = text + c.Value + ", ";
-            //        }
-            //    }
-            //    if (text == "") lb_mail_To_NewMail.Text = "N/A";
-            //    else lb_mail_To_NewMail.Text = text;
-            //    lb_mail_Time_NewMail.Text = DateTime.Today.ToString("dd/MM/yyyy");
-        }
+			List_Id_Mail = new List<string>();
+			String text = "";
+			foreach (CheckedListBoxItem c in cbb_main_ListTo.Properties.Items)
+			{
+				if (c.CheckState == CheckState.Checked)
+				{
+					List_Id_Mail.Add(c.Value + "");
+					text = text + c.Value + ", ";
+				}
+			}
+			if (text == "") lb_mail_To_NewMail.Text = "N/A";
+			else lb_mail_To_NewMail.Text = text;
+			lb_mail_Time_NewMail.Text = DateTime.Today.ToString("dd/MM/yyyy");
+		}
 
         private void btn_repplyMail_Click(object sender, EventArgs e)
         {
-            //    if (lb_mail_From_HTD.Text == "N/A")
-            //    {
-            //        MessageBox.Show("Chưa chọn thư nào để trả lời.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        return;
-            //    }
-            //    ClearNewMail();
-            //    xtraTabPage6.Show();
-            //    lb_mail_To_NewMail.Text = lb_mail_From_HTD.Text;
-            //    foreach (CheckedListBoxItem c in cbb_main_ListTo.Properties.Items)
-            //    {
-            //        MessageBox.Show("/" + c.Description + "/" + lb_mail_To_NewMail.Text + "/");
-            //        if (c.Description == lb_mail_To_NewMail.Text)
-            //            c.CheckState = CheckState.Checked;
-            //    }
-            //    lb_mail_Time_NewMail.Text = DateTime.Today.ToString("dd/MM/yyyy");
-        }
+			if (lb_mail_From_HTD.Text == "N/A")
+			{
+				MessageBox.Show("Chưa chọn thư nào để trả lời.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			ClearNewMail();
+			xtraTabPage6.Show();
+			lb_mail_To_NewMail.Text = lb_mail_From_HTD.Text;
+			foreach (CheckedListBoxItem c in cbb_main_ListTo.Properties.Items)
+			{
+				if (c.Description == lb_mail_To_NewMail.Text)
+					c.CheckState = CheckState.Checked;
+			}
+			lb_mail_Time_NewMail.Text = DateTime.Today.ToString("dd/MM/yyyy");
+		}
 
         private void btn_mail_Clear_NewMail_Click(object sender, EventArgs e)
         {
-            //    ClearNewMail();
+                ClearNewMail();
         }
 
         private async void simpleButton1_Click(object sender, EventArgs e)
         {
-            //    if (lb_mail_To_NewMail.Text == "N/A")
-            //    {
-            //        MessageBox.Show("Chưa có ai trong danh sách gửi.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        return;
-            //    }
-            //    if (txt_mail_Content_NewMail.Text.Length < 10)
-            //    {
-            //        MessageBox.Show("Nội dung thư quá ngăn.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        return;
-            //    }
-            //    if (List_Id_Mail.Count == 0) List_Id_Mail.Add(lb_mail_To_NewMail.Text);
-            //    List<MESSANGE> send = new List<MESSANGE>();
-            //    foreach (String id in List_Id_Mail)
-            //    {
-            //        MESSANGE m = new MESSANGE();
-            //        m.Id_From = user.Id_User;
-            //        m.Id_To = id;
-            //        m.Mess = txt_mail_Content_NewMail.Text;
-            //        m.Time = DateTime.Now;
-            //        send.Add(m);
-            //        MessageBox.Show(m.Id_From + "/" + m.Id_To + "/" + m.Mess + "/" + m.Seen);
-            //    }
-            //    int i = await AddNewMail(send);
-            //    MessageBox.Show("Gửi " + i + " thư thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    ClearNewMail();
-        }
+			if (lb_mail_To_NewMail.Text == "N/A")
+			{
+				MessageBox.Show("Chưa có ai trong danh sách gửi.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			if (txt_mail_Content_NewMail.Text.Length < 10)
+			{
+				MessageBox.Show("Nội dung thư quá ngăn.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			if (List_Id_Mail.Count == 0) List_Id_Mail.Add(lb_mail_To_NewMail.Text);
+			string uri = "messages?user_email=" + staff.email + "&user_token=" + staff.authentication_token;
+			string reponse = POST(uri, "{\"list_email\":\"" + string.Join(",",List_Id_Mail.ToArray()) + "\",\"title\":\"" + txt_mail_title.Text + "\",\"info\":\"" + txt_mail_Content_NewMail.Text + "\"}");
+			Reponse<int> r = JsonConvert.DeserializeObject<Reponse<int>>(reponse);
+			if (r.status == 200)
+			{
+				MessageBox.Show("Gửi " + r.content + " thư thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				ClearNewMail();
+			}
+			else
+			{
+				MessageBox.Show(r.message, "Lỗi");
+			}
+		}
 
         private void btn_loadnewMail_Click(object sender, EventArgs e)
         {
@@ -715,7 +731,7 @@ namespace User
             notifyIcon1.Visible = false;
         }
 
-        private void check_mail_UnRead_CheckedChanged(object sender, EventArgs e)
+		private void check_mail_UnRead_CheckedChanged(object sender, EventArgs e)
         {
             //    LoadMess_HTD();
         }

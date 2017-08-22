@@ -117,11 +117,15 @@
 			this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
 			this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+			this.lb_mail_title = new DevExpress.XtraEditors.LabelControl();
 			this.lb_mail_Time_HTD = new DevExpress.XtraEditors.LabelControl();
+			this.labelabc = new DevExpress.XtraEditors.LabelControl();
 			this.lb_mail_From_HTD = new DevExpress.XtraEditors.LabelControl();
 			this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
 			this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
 			this.xtraTabPage7 = new DevExpress.XtraTab.XtraTabPage();
+			this.lb_mail_DI_title = new DevExpress.XtraEditors.LabelControl();
+			this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
 			this.btn_loadMail_D = new DevExpress.XtraEditors.SimpleButton();
 			this.xtraScrollableControl3 = new DevExpress.XtraEditors.XtraScrollableControl();
 			this.lb_mail_Content_D = new DevExpress.XtraEditors.LabelControl();
@@ -143,6 +147,7 @@
 			this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
 			this.lb_mail_Time_NewMail = new DevExpress.XtraEditors.LabelControl();
 			this.txt_mail_Content_NewMail = new DevExpress.XtraEditors.MemoEdit();
+			this.labelControl33 = new DevExpress.XtraEditors.LabelControl();
 			this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
 			this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
 			this.label3 = new System.Windows.Forms.Label();
@@ -165,6 +170,7 @@
 			this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
 			this.btn_loadReport = new DevExpress.XtraEditors.SimpleButton();
 			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+			this.txt_mail_title = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
 			this.xtraTabControl1.SuspendLayout();
 			this.xtraTabPage1.SuspendLayout();
@@ -236,7 +242,7 @@
 			this.xtraTabPage1.Controls.Add(this.labelControl1);
 			this.xtraTabPage1.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage1.Image")));
 			this.xtraTabPage1.Name = "xtraTabPage1";
-			this.xtraTabPage1.Size = new System.Drawing.Size(299, 379);
+			this.xtraTabPage1.Size = new System.Drawing.Size(299, 476);
 			this.xtraTabPage1.Text = "Thông Tin";
 			// 
 			// btn_LogOut
@@ -682,7 +688,7 @@
 			this.xtraTabPage2.Controls.Add(this.btn_workStart);
 			this.xtraTabPage2.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage2.Image")));
 			this.xtraTabPage2.Name = "xtraTabPage2";
-			this.xtraTabPage2.Size = new System.Drawing.Size(299, 685);
+			this.xtraTabPage2.Size = new System.Drawing.Size(299, 476);
 			this.xtraTabPage2.Text = "Làm Việc";
 			// 
 			// lb_today
@@ -787,13 +793,13 @@
 			this.xtraTabPage3.Controls.Add(this.cbb_Task);
 			this.xtraTabPage3.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage3.Image")));
 			this.xtraTabPage3.Name = "xtraTabPage3";
-			this.xtraTabPage3.Size = new System.Drawing.Size(299, 685);
+			this.xtraTabPage3.Size = new System.Drawing.Size(299, 476);
 			this.xtraTabPage3.Text = "Công Việc";
 			// 
 			// lb_Task_StatusNow
 			// 
 			this.lb_Task_StatusNow.Location = new System.Drawing.Point(108, 276);
-			this.lb_Task_StatusNow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.lb_Task_StatusNow.Margin = new System.Windows.Forms.Padding(2);
 			this.lb_Task_StatusNow.Name = "lb_Task_StatusNow";
 			this.lb_Task_StatusNow.Size = new System.Drawing.Size(18, 13);
 			this.lb_Task_StatusNow.TabIndex = 16;
@@ -924,7 +930,7 @@
 			this.xtraTabPage4.Controls.Add(this.lb_mail_From_D);
 			this.xtraTabPage4.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage4.Image")));
 			this.xtraTabPage4.Name = "xtraTabPage4";
-			this.xtraTabPage4.Size = new System.Drawing.Size(299, 685);
+			this.xtraTabPage4.Size = new System.Drawing.Size(299, 476);
 			this.xtraTabPage4.Text = "E-Mail";
 			// 
 			// lb_mail_From_D
@@ -933,7 +939,7 @@
 			this.lb_mail_From_D.Location = new System.Drawing.Point(0, 0);
 			this.lb_mail_From_D.Name = "lb_mail_From_D";
 			this.lb_mail_From_D.SelectedTabPage = this.xtraTabPage5;
-			this.lb_mail_From_D.Size = new System.Drawing.Size(299, 685);
+			this.lb_mail_From_D.Size = new System.Drawing.Size(299, 476);
 			this.lb_mail_From_D.TabIndex = 0;
 			this.lb_mail_From_D.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage5,
@@ -950,13 +956,15 @@
 			this.xtraTabPage5.Controls.Add(this.labelControl16);
 			this.xtraTabPage5.Controls.Add(this.gridControl1);
 			this.xtraTabPage5.Controls.Add(this.labelControl14);
+			this.xtraTabPage5.Controls.Add(this.lb_mail_title);
 			this.xtraTabPage5.Controls.Add(this.lb_mail_Time_HTD);
+			this.xtraTabPage5.Controls.Add(this.labelabc);
 			this.xtraTabPage5.Controls.Add(this.lb_mail_From_HTD);
 			this.xtraTabPage5.Controls.Add(this.labelControl15);
 			this.xtraTabPage5.Controls.Add(this.labelControl11);
 			this.xtraTabPage5.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage5.Image")));
 			this.xtraTabPage5.Name = "xtraTabPage5";
-			this.xtraTabPage5.Size = new System.Drawing.Size(293, 654);
+			this.xtraTabPage5.Size = new System.Drawing.Size(293, 445);
 			this.xtraTabPage5.Text = "Hộp Thư Đến";
 			// 
 			// btn_loadMail_HTD
@@ -972,7 +980,7 @@
 			// btn_repplyMail
 			// 
 			this.btn_repplyMail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_repplyMail.ImageOptions.Image")));
-			this.btn_repplyMail.Location = new System.Drawing.Point(204, 60);
+			this.btn_repplyMail.Location = new System.Drawing.Point(204, 26);
 			this.btn_repplyMail.Name = "btn_repplyMail";
 			this.btn_repplyMail.Size = new System.Drawing.Size(85, 23);
 			this.btn_repplyMail.TabIndex = 12;
@@ -984,7 +992,7 @@
 			this.xtraScrollableControl2.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.xtraScrollableControl2.Appearance.Options.UseBackColor = true;
 			this.xtraScrollableControl2.Controls.Add(this.lb_mail_Content);
-			this.xtraScrollableControl2.Location = new System.Drawing.Point(4, 85);
+			this.xtraScrollableControl2.Location = new System.Drawing.Point(2, 103);
 			this.xtraScrollableControl2.Name = "xtraScrollableControl2";
 			this.xtraScrollableControl2.Size = new System.Drawing.Size(285, 82);
 			this.xtraScrollableControl2.TabIndex = 11;
@@ -994,7 +1002,7 @@
 			this.lb_mail_Content.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
 			this.lb_mail_Content.LineOrientation = DevExpress.XtraEditors.LabelLineOrientation.Vertical;
 			this.lb_mail_Content.LineVisible = true;
-			this.lb_mail_Content.Location = new System.Drawing.Point(0, 0);
+			this.lb_mail_Content.Location = new System.Drawing.Point(0, 3);
 			this.lb_mail_Content.Name = "lb_mail_Content";
 			this.lb_mail_Content.Size = new System.Drawing.Size(260, 13);
 			this.lb_mail_Content.TabIndex = 0;
@@ -1028,7 +1036,7 @@
 			// 
 			// labelControl16
 			// 
-			this.labelControl16.Location = new System.Drawing.Point(-1, 178);
+			this.labelControl16.Location = new System.Drawing.Point(-1, 201);
 			this.labelControl16.Name = "labelControl16";
 			this.labelControl16.Size = new System.Drawing.Size(65, 13);
 			this.labelControl16.TabIndex = 8;
@@ -1036,10 +1044,10 @@
 			// 
 			// gridControl1
 			// 
-			this.gridControl1.Location = new System.Drawing.Point(-1, 192);
+			this.gridControl1.Location = new System.Drawing.Point(-1, 215);
 			this.gridControl1.MainView = this.gridView1;
 			this.gridControl1.Name = "gridControl1";
-			this.gridControl1.Size = new System.Drawing.Size(290, 216);
+			this.gridControl1.Size = new System.Drawing.Size(290, 185);
 			this.gridControl1.TabIndex = 7;
 			this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1059,7 +1067,7 @@
 			// gridColumn1
 			// 
 			this.gridColumn1.Caption = "From";
-			this.gridColumn1.FieldName = "Id_From";
+			this.gridColumn1.FieldName = "name";
 			this.gridColumn1.Name = "gridColumn1";
 			this.gridColumn1.Visible = true;
 			this.gridColumn1.VisibleIndex = 0;
@@ -1068,7 +1076,7 @@
 			// gridColumn2
 			// 
 			this.gridColumn2.Caption = "Time";
-			this.gridColumn2.FieldName = "Time";
+			this.gridColumn2.FieldName = "created_at";
 			this.gridColumn2.Name = "gridColumn2";
 			this.gridColumn2.Visible = true;
 			this.gridColumn2.VisibleIndex = 1;
@@ -1076,11 +1084,19 @@
 			// 
 			// labelControl14
 			// 
-			this.labelControl14.Location = new System.Drawing.Point(3, 70);
+			this.labelControl14.Location = new System.Drawing.Point(1, 88);
 			this.labelControl14.Name = "labelControl14";
 			this.labelControl14.Size = new System.Drawing.Size(43, 13);
 			this.labelControl14.TabIndex = 6;
 			this.labelControl14.Text = "Content:";
+			// 
+			// lb_mail_title
+			// 
+			this.lb_mail_title.Location = new System.Drawing.Point(35, 70);
+			this.lb_mail_title.Name = "lb_mail_title";
+			this.lb_mail_title.Size = new System.Drawing.Size(18, 13);
+			this.lb_mail_title.TabIndex = 4;
+			this.lb_mail_title.Text = "N/A";
 			// 
 			// lb_mail_Time_HTD
 			// 
@@ -1089,6 +1105,14 @@
 			this.lb_mail_Time_HTD.Size = new System.Drawing.Size(18, 13);
 			this.lb_mail_Time_HTD.TabIndex = 4;
 			this.lb_mail_Time_HTD.Text = "N/A";
+			// 
+			// labelabc
+			// 
+			this.labelabc.Location = new System.Drawing.Point(2, 69);
+			this.labelabc.Name = "labelabc";
+			this.labelabc.Size = new System.Drawing.Size(24, 13);
+			this.labelabc.TabIndex = 2;
+			this.labelabc.Text = "Title:";
 			// 
 			// lb_mail_From_HTD
 			// 
@@ -1116,6 +1140,8 @@
 			// 
 			// xtraTabPage7
 			// 
+			this.xtraTabPage7.Controls.Add(this.lb_mail_DI_title);
+			this.xtraTabPage7.Controls.Add(this.labelControl35);
 			this.xtraTabPage7.Controls.Add(this.btn_loadMail_D);
 			this.xtraTabPage7.Controls.Add(this.xtraScrollableControl3);
 			this.xtraTabPage7.Controls.Add(this.labelControl18);
@@ -1127,8 +1153,24 @@
 			this.xtraTabPage7.Controls.Add(this.labelControl23);
 			this.xtraTabPage7.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage7.Image")));
 			this.xtraTabPage7.Name = "xtraTabPage7";
-			this.xtraTabPage7.Size = new System.Drawing.Size(293, 654);
+			this.xtraTabPage7.Size = new System.Drawing.Size(293, 445);
 			this.xtraTabPage7.Text = "Hộp Thư Đi";
+			// 
+			// lb_mail_DI_title
+			// 
+			this.lb_mail_DI_title.Location = new System.Drawing.Point(36, 66);
+			this.lb_mail_DI_title.Name = "lb_mail_DI_title";
+			this.lb_mail_DI_title.Size = new System.Drawing.Size(18, 13);
+			this.lb_mail_DI_title.TabIndex = 15;
+			this.lb_mail_DI_title.Text = "N/A";
+			// 
+			// labelControl35
+			// 
+			this.labelControl35.Location = new System.Drawing.Point(3, 65);
+			this.labelControl35.Name = "labelControl35";
+			this.labelControl35.Size = new System.Drawing.Size(20, 13);
+			this.labelControl35.TabIndex = 14;
+			this.labelControl35.Text = "Title";
 			// 
 			// btn_loadMail_D
 			// 
@@ -1145,7 +1187,7 @@
 			this.xtraScrollableControl3.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.xtraScrollableControl3.Appearance.Options.UseBackColor = true;
 			this.xtraScrollableControl3.Controls.Add(this.lb_mail_Content_D);
-			this.xtraScrollableControl3.Location = new System.Drawing.Point(4, 79);
+			this.xtraScrollableControl3.Location = new System.Drawing.Point(4, 96);
 			this.xtraScrollableControl3.Name = "xtraScrollableControl3";
 			this.xtraScrollableControl3.Size = new System.Drawing.Size(285, 105);
 			this.xtraScrollableControl3.TabIndex = 11;
@@ -1163,7 +1205,7 @@
 			// 
 			// labelControl18
 			// 
-			this.labelControl18.Location = new System.Drawing.Point(0, 194);
+			this.labelControl18.Location = new System.Drawing.Point(0, 207);
 			this.labelControl18.Name = "labelControl18";
 			this.labelControl18.Size = new System.Drawing.Size(65, 13);
 			this.labelControl18.TabIndex = 8;
@@ -1171,7 +1213,7 @@
 			// 
 			// gridControl2
 			// 
-			this.gridControl2.Location = new System.Drawing.Point(-1, 209);
+			this.gridControl2.Location = new System.Drawing.Point(-1, 222);
 			this.gridControl2.MainView = this.gridView2;
 			this.gridControl2.Name = "gridControl2";
 			this.gridControl2.Size = new System.Drawing.Size(290, 223);
@@ -1193,7 +1235,7 @@
 			// gridColumn3
 			// 
 			this.gridColumn3.Caption = "To";
-			this.gridColumn3.FieldName = "Id_To";
+			this.gridColumn3.FieldName = "name";
 			this.gridColumn3.Name = "gridColumn3";
 			this.gridColumn3.Visible = true;
 			this.gridColumn3.VisibleIndex = 0;
@@ -1202,7 +1244,7 @@
 			// gridColumn4
 			// 
 			this.gridColumn4.Caption = "Time";
-			this.gridColumn4.FieldName = "Time";
+			this.gridColumn4.FieldName = "created_at";
 			this.gridColumn4.Name = "gridColumn4";
 			this.gridColumn4.Visible = true;
 			this.gridColumn4.VisibleIndex = 1;
@@ -1210,7 +1252,7 @@
 			// 
 			// labelControl19
 			// 
-			this.labelControl19.Location = new System.Drawing.Point(3, 64);
+			this.labelControl19.Location = new System.Drawing.Point(3, 81);
 			this.labelControl19.Name = "labelControl19";
 			this.labelControl19.Size = new System.Drawing.Size(43, 13);
 			this.labelControl19.TabIndex = 6;
@@ -1250,19 +1292,21 @@
 			// 
 			// xtraTabPage6
 			// 
+			this.xtraTabPage6.Controls.Add(this.txt_mail_title);
 			this.xtraTabPage6.Controls.Add(this.xtraScrollableControl4);
 			this.xtraTabPage6.Controls.Add(this.btn_mail_Clear_NewMail);
 			this.xtraTabPage6.Controls.Add(this.simpleButton1);
 			this.xtraTabPage6.Controls.Add(this.labelControl25);
 			this.xtraTabPage6.Controls.Add(this.lb_mail_Time_NewMail);
 			this.xtraTabPage6.Controls.Add(this.txt_mail_Content_NewMail);
+			this.xtraTabPage6.Controls.Add(this.labelControl33);
 			this.xtraTabPage6.Controls.Add(this.labelControl21);
 			this.xtraTabPage6.Controls.Add(this.labelControl17);
 			this.xtraTabPage6.Controls.Add(this.label3);
 			this.xtraTabPage6.Controls.Add(this.cbb_main_ListTo);
 			this.xtraTabPage6.Image = ((System.Drawing.Image)(resources.GetObject("xtraTabPage6.Image")));
 			this.xtraTabPage6.Name = "xtraTabPage6";
-			this.xtraTabPage6.Size = new System.Drawing.Size(293, 654);
+			this.xtraTabPage6.Size = new System.Drawing.Size(293, 445);
 			this.xtraTabPage6.Text = "Thư Mới";
 			// 
 			// xtraScrollableControl4
@@ -1284,7 +1328,7 @@
 			// btn_mail_Clear_NewMail
 			// 
 			this.btn_mail_Clear_NewMail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_mail_Clear_NewMail.ImageOptions.Image")));
-			this.btn_mail_Clear_NewMail.Location = new System.Drawing.Point(63, 283);
+			this.btn_mail_Clear_NewMail.Location = new System.Drawing.Point(63, 314);
 			this.btn_mail_Clear_NewMail.Name = "btn_mail_Clear_NewMail";
 			this.btn_mail_Clear_NewMail.Size = new System.Drawing.Size(75, 23);
 			this.btn_mail_Clear_NewMail.TabIndex = 9;
@@ -1294,7 +1338,7 @@
 			// simpleButton1
 			// 
 			this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-			this.simpleButton1.Location = new System.Drawing.Point(7, 283);
+			this.simpleButton1.Location = new System.Drawing.Point(7, 314);
 			this.simpleButton1.Name = "simpleButton1";
 			this.simpleButton1.Size = new System.Drawing.Size(50, 23);
 			this.simpleButton1.TabIndex = 8;
@@ -1303,7 +1347,7 @@
 			// 
 			// labelControl25
 			// 
-			this.labelControl25.Location = new System.Drawing.Point(7, 115);
+			this.labelControl25.Location = new System.Drawing.Point(7, 146);
 			this.labelControl25.Name = "labelControl25";
 			this.labelControl25.Size = new System.Drawing.Size(43, 13);
 			this.labelControl25.TabIndex = 7;
@@ -1319,10 +1363,18 @@
 			// 
 			// txt_mail_Content_NewMail
 			// 
-			this.txt_mail_Content_NewMail.Location = new System.Drawing.Point(3, 128);
+			this.txt_mail_Content_NewMail.Location = new System.Drawing.Point(3, 159);
 			this.txt_mail_Content_NewMail.Name = "txt_mail_Content_NewMail";
 			this.txt_mail_Content_NewMail.Size = new System.Drawing.Size(286, 145);
 			this.txt_mail_Content_NewMail.TabIndex = 5;
+			// 
+			// labelControl33
+			// 
+			this.labelControl33.Location = new System.Drawing.Point(7, 115);
+			this.labelControl33.Name = "labelControl33";
+			this.labelControl33.Size = new System.Drawing.Size(24, 13);
+			this.labelControl33.TabIndex = 4;
+			this.labelControl33.Text = "Title:";
 			// 
 			// labelControl21
 			// 
@@ -1364,12 +1416,12 @@
 			this.Loadding.Controls.Add(this.pictureBox1);
 			this.Loadding.Controls.Add(this.progressPanel1);
 			this.Loadding.Name = "Loadding";
-			this.Loadding.Size = new System.Drawing.Size(299, 685);
+			this.Loadding.Size = new System.Drawing.Size(299, 476);
 			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.Location = new System.Drawing.Point(32, 229);
-			this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(240, 244);
 			this.pictureBox1.TabIndex = 1;
@@ -1535,6 +1587,13 @@
 			this.notifyIcon1.BalloonTipClicked += new System.EventHandler(this.notifyIcon1_Click);
 			this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
 			this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
+			// 
+			// txt_mail_title
+			// 
+			this.txt_mail_title.Location = new System.Drawing.Point(33, 115);
+			this.txt_mail_title.Name = "txt_mail_title";
+			this.txt_mail_title.Size = new System.Drawing.Size(250, 21);
+			this.txt_mail_title.TabIndex = 11;
 			// 
 			// Home
 			// 
@@ -1739,5 +1798,11 @@
         private DevExpress.XtraEditors.LabelControl labelControl34;
         private DevExpress.XtraEditors.LabelControl lb_numOfTaskrunning;
         private DevExpress.XtraEditors.LabelControl labelControl32;
-    }
+		private DevExpress.XtraEditors.LabelControl lb_mail_title;
+		private DevExpress.XtraEditors.LabelControl labelabc;
+		private DevExpress.XtraEditors.LabelControl lb_mail_DI_title;
+		private DevExpress.XtraEditors.LabelControl labelControl35;
+		private DevExpress.XtraEditors.LabelControl labelControl33;
+		private System.Windows.Forms.TextBox txt_mail_title;
+	}
 }
